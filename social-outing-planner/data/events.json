@@ -1,75 +1,5 @@
 [
   {
-    "_id": "me4gsu441ln5gtynyuc",
-    "title": "Prayer",
-    "type": "aoi",
-    "itemId": "me4gsj4eb5dgdfbnix7",
-    "date": "2025-08-11T00:00:00.000Z",
-    "notes": "its literally a conversation with Allah. bro.",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:24:06.772Z"
-  },
-  {
-    "_id": "me4gswj813mnej0w5469",
-    "title": "Prayer",
-    "type": "aoi",
-    "itemId": "me4gsj4eb5dgdfbnix7",
-    "date": "2025-08-14T00:00:00.000Z",
-    "notes": "its literally a conversation with Allah. bro.",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:24:09.908Z"
-  },
-  {
-    "_id": "me4gt65c4d2alb7mb8b",
-    "title": "Prayer",
-    "type": "aoi",
-    "itemId": "me4gsj4eb5dgdfbnix7",
-    "date": "2025-08-31T00:00:00.000Z",
-    "notes": "its literally a conversation with Allah. bro.",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:24:22.368Z"
-  },
-  {
-    "_id": "me4gt7somuwbyrhn1j",
-    "title": "Prayer",
-    "type": "aoi",
-    "itemId": "me4gsj4eb5dgdfbnix7",
-    "date": "2025-08-25T00:00:00.000Z",
-    "notes": "its literally a conversation with Allah. bro.",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:24:24.504Z"
-  },
-  {
-    "_id": "me4gt9hwsn2dyys9aal",
-    "title": "Prayer",
-    "type": "aoi",
-    "itemId": "me4gsj4eb5dgdfbnix7",
-    "date": "2025-08-17T00:00:00.000Z",
-    "notes": "its literally a conversation with Allah. bro.",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:24:26.708Z"
-  },
-  {
-    "_id": "me4gu1o1qoh852zti9",
-    "title": "Makkah Al-Mukarramah",
-    "type": "poi",
-    "itemId": "me4gttppho0unmau4nk",
-    "date": "2025-08-20T00:00:00.000Z",
-    "notes": "",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:25:03.217Z"
-  },
-  {
-    "_id": "me4gug16l92g9brh42s",
-    "title": "Makkah Al-Mukarramah",
-    "type": "poi",
-    "itemId": "me4gttppho0unmau4nk",
-    "date": "2025-08-21T00:00:00.000Z",
-    "notes": "",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:25:21.834Z"
-  },
-  {
     "_id": "me4gxn6blvp0jkz0lh",
     "title": "Home",
     "type": "poi",
@@ -170,123 +100,6 @@
     "createdAt": "2025-08-09T16:28:10.747Z"
   },
   {
-    "_id": "me4ihdfqhbm56s9g7t7",
-    "title": "Masjid An-Nabawi",
-    "description": "This is literally the most Blessed place in the entire cosmos bro.",
-    "type": "poi",
-    "date": "2025-08-03",
-    "location": "Al Haram, Madinah 42311, Saudi Arabia",
-    "category": "",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:11.174Z"
-  },
-  {
-    "_id": "me4ihitlatkgxfxzp6l",
-    "title": "Masjid An-Nabawi",
-    "description": "This is literally the most Blessed place in the entire cosmos bro.",
-    "type": "poi",
-    "date": "2025-08-03",
-    "location": "Al Haram, Madinah 42311, Saudi Arabia",
-    "category": "",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:18.153Z"
-  },
-  {
-    "_id": "me4ihngiabec8d4ys",
-    "title": "Masjid An-Nabawi",
-    "description": "This is literally the most Blessed place in the entire cosmos bro.",
-    "type": "poi",
-    "date": "2025-08-03",
-    "location": "Al Haram, Madinah 42311, Saudi Arabia",
-    "category": "",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:24.162Z"
-  },
-  {
-    "_id": "me4ihpz3vgwd7km6atc",
-    "title": "Masjid An-Nabawi",
-    "description": "This is literally the most Blessed place in the entire cosmos bro.",
-    "type": "poi",
-    "date": "2025-08-03",
-    "location": "Al Haram, Madinah 42311, Saudi Arabia",
-    "category": "",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:27.423Z"
-  },
-  {
-    "_id": "me4ihs2856dqx1ae0mv",
-    "title": "Masjid An-Nabawi",
-    "description": "This is literally the most Blessed place in the entire cosmos bro.",
-    "type": "poi",
-    "date": "2025-08-03",
-    "location": "Al Haram, Madinah 42311, Saudi Arabia",
-    "category": "",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:30.128Z"
-  },
-  {
-    "_id": "me4ihwlewvtmd6nea2f",
-    "title": "Prayer",
-    "description": "its literally a conversation with Allah. bro.",
-    "type": "aoi",
-    "date": "2025-08-03",
-    "duration": 5,
-    "category": "spiritual",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:36.002Z"
-  },
-  {
-    "_id": "me4ii08c0x9roro7cwj",
-    "title": "Prayer",
-    "description": "its literally a conversation with Allah. bro.",
-    "type": "aoi",
-    "date": "2025-08-03",
-    "duration": 5,
-    "category": "spiritual",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:40.717Z"
-  },
-  {
-    "_id": "me4ii36x63s9hrg0upy",
-    "title": "Prayer",
-    "description": "its literally a conversation with Allah. bro.",
-    "type": "aoi",
-    "date": "2025-08-03",
-    "duration": 5,
-    "category": "spiritual",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:44.553Z"
-  },
-  {
-    "_id": "me4ii7gzll9l2k0fbnb",
-    "title": "Prayer",
-    "description": "its literally a conversation with Allah. bro.",
-    "type": "aoi",
-    "date": "2025-08-03",
-    "duration": 5,
-    "category": "spiritual",
-    "startTime": "09:00",
-    "endTime": "10:00",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:11:50.099Z"
-  },
-  {
     "_id": "me4ll43jat1r2h7djph",
     "title": "Darul Qasim",
     "description": "Sh. Amin",
@@ -324,5 +137,18 @@
     "endTime": "10:00",
     "userId": "me4lk04vhgbjs2vebma",
     "createdAt": "2025-08-09T18:38:14.691Z"
+  },
+  {
+    "_id": "me4mjxq3zlkefiz016e",
+    "title": "Masjid An-Nabawi",
+    "description": "This is literally the most Blessed place in the entire cosmos bro.",
+    "type": "poi",
+    "date": "2025-08-09",
+    "location": "Al Haram, Madinah 42311, Saudi Arabia",
+    "category": "",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T19:05:09.244Z"
   }
 ]

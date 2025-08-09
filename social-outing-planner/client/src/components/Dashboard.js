@@ -12,99 +12,107 @@ import TimePickerModal from './TimePickerModal';
 const DashboardContainer = styled.div`
   display: flex;
   height: 100vh;
+  background: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const Sidebar = styled.div`
-  width: 350px;
-  background: white;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  background: #ffffff;
+  border-right: 1px solid #e8e8e8;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
 `;
 
 const Header = styled.div`
-  padding: 20px;
-  border-bottom: 1px solid #e1e5e9;
+  padding: 32px 24px;
+  border-bottom: 1px solid #f0f0f0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 const Logo = styled.h1`
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: 700;
+  color: #000000;
+  font-size: 1.75rem;
+  font-weight: 600;
   margin: 0;
+  letter-spacing: -0.02em;
 `;
 
 const LogoutButton = styled.button`
   background: none;
   border: none;
-  color: #666;
+  color: #666666;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background-color 0.2s;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
   
   &:hover {
-    background-color: #f5f5f5;
+    background-color: #f8f8f8;
+    color: #000000;
   }
 `;
 
 const Section = styled.div`
-  padding: 20px;
-  border-bottom: 1px solid #e1e5e9;
+  padding: 24px;
+  border-bottom: 1px solid #f0f0f0;
 `;
 
 const SectionTitle = styled.h2`
-  color: #333;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  color: #000000;
+  font-size: 1.125rem;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 `;
 
 const AddButton = styled.button`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 15px;
-  transition: transform 0.2s;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
   
   &:hover {
+    background: #333333;
     transform: translateY(-1px);
   }
 `;
 
 const ListContainer = styled.div`
-  min-height: 100px;
-  padding: 10px;
-  border: 2px dashed #e1e5e9;
-  border-radius: 8px;
-  background: #f9f9f9;
+  min-height: 120px;
+  padding: 16px;
+  border: 1px dashed #e0e0e0;
+  border-radius: 12px;
+  background: #fafafa;
 `;
 
 const MainContent = styled.div`
   flex: 1;
-  padding: 20px;
+  padding: 32px;
   overflow-y: auto;
 `;
 
 const CalendarContainer = styled.div`
   background: white;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid #f0f0f0;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
@@ -112,103 +120,116 @@ const CalendarHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 `;
 
 const CalendarTitle = styled.h1`
-  color: #333;
-  font-size: 2rem;
-  font-weight: 700;
+  color: #000000;
+  font-size: 2.25rem;
+  font-weight: 600;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
+  letter-spacing: -0.02em;
 `;
 
 const NavButton = styled.button`
   background: none;
-  border: 2px solid #667eea;
-  color: #667eea;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  border: 1px solid #e0e0e0;
+  color: #666666;
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   
   &:hover {
-    background: #667eea;
-    color: white;
-    transform: scale(1.1);
+    background: #f8f8f8;
+    border-color: #000000;
+    color: #000000;
   }
 `;
 
 const NavControls = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 `;
 
 const MonthGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
-  margin-top: 20px;
+  gap: 1px;
+  margin-top: 24px;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
 `;
 
 const DayCell = styled.div`
-  min-height: 120px;
-  border: 1px solid #e1e5e9;
-  border-radius: 8px;
-  padding: 8px;
-  background: ${props => props.$isToday ? '#f0f4ff' : 'white'};
+  min-height: 140px;
+  border: none;
+  padding: 12px;
+  background: ${props => props.$isToday ? '#f8f8f8' : 'white'};
   position: relative;
   transition: all 0.2s ease;
+  border-right: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  
+  &:nth-child(7n) {
+    border-right: none;
+  }
   
   &:hover {
-    border-color: #667eea;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+    background: #fafafa;
   }
   
   &.drag-over {
-    border: 2px dashed #667eea;
-    background: rgba(102, 126, 234, 0.05);
-    transform: scale(1.02);
+    background: #f0f0f0;
+    transform: scale(1.01);
   }
 `;
 
 const DayNumber = styled.div`
   font-weight: 600;
-  color: ${props => props.$isToday ? '#667eea' : '#333'};
-  margin-bottom: 5px;
+  color: ${props => props.$isToday ? '#000000' : '#333333'};
+  margin-bottom: 8px;
+  font-size: 14px;
 `;
 
 const EventsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 `;
 
 const EventPill = styled.div`
-  background: ${props => props.type === 'poi' ? '#e3f2fd' : '#f3e5f5'};
-  color: ${props => props.type === 'poi' ? '#1976d2' : '#7b1fa2'};
-  padding: 4px 8px;
-  border-radius: 12px;
+  background: ${props => props.type === 'poi' ? '#f0f0f0' : '#f8f8f8'};
+  color: ${props => props.type === 'poi' ? '#000000' : '#333333'};
+  padding: 6px 10px;
+  border-radius: 8px;
   font-size: 11px;
   font-weight: 500;
   cursor: pointer;
-  border: 1px solid ${props => props.type === 'poi' ? '#bbdefb' : '#e1bee7'};
+  transition: all 0.2s ease;
   margin-bottom: 2px;
   display: flex;
   align-items: center;
   gap: 4px;
+  border: 1px solid ${props => props.type === 'poi' ? '#e0e0e0' : '#e8e8e8'};
+  
+  &:hover {
+    background: ${props => props.type === 'poi' ? '#e8e8e8' : '#f0f0f0'};
+  }
 `;
 
 const TimeDisplay = styled.span`
   font-size: 10px;
-  opacity: 0.8;
+  opacity: 0.7;
   display: flex;
   align-items: center;
   gap: 2px;
@@ -357,7 +378,7 @@ const Dashboard = ({
     <DashboardContainer>
       <Sidebar>
         <Header>
-          <Logo>OutingPlan</Logo>
+          <Logo>Good Company</Logo>
           <LogoutButton onClick={onLogout}>
             <LogOut size={20} />
           </LogoutButton>

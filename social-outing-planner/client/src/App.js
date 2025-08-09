@@ -11,8 +11,8 @@ import Dashboard from './components/Dashboard';
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 `;
 
 const App = () => {
@@ -137,7 +137,7 @@ const App = () => {
     return (
       <AppContainer>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-          <h2 style={{ color: 'white' }}>Loading...</h2>
+          <h2 style={{ color: '#000000', fontWeight: '600', fontSize: '1.5rem' }}>Loading...</h2>
         </div>
       </AppContainer>
     );

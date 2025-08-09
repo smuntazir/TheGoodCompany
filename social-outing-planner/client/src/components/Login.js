@@ -15,19 +15,20 @@ const LoginContainer = styled.div`
 
 const LoginCard = styled.div`
   background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 48px;
+  border-radius: 16px;
+  border: 1px solid #f0f0f0;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
 `;
 
 const Title = styled.h1`
   text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 40px;
+  font-size: 2.25rem;
   font-weight: 600;
+  letter-spacing: -0.02em;
 `;
 
 const Form = styled.form`
@@ -42,43 +43,46 @@ const InputGroup = styled.div`
 
 const Input = styled.input`
   width: 100%;
-  padding: 15px 15px 15px 45px;
-  border: 2px solid #e1e5e9;
-  border-radius: 10px;
+  padding: 16px 16px 16px 48px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
   font-size: 16px;
-  transition: border-color 0.3s;
+  transition: all 0.2s ease;
+  background: #fafafa;
   
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #000000;
+    background: #ffffff;
   }
 `;
 
 const InputIcon = styled.div`
   position: absolute;
-  left: 15px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: #999;
+  color: #999999;
 `;
 
 const Button = styled.button`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
   border: none;
-  padding: 15px;
-  border-radius: 10px;
+  padding: 16px;
+  border-radius: 12px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   
   &:hover {
-    transform: translateY(-2px);
+    background: #333333;
+    transform: translateY(-1px);
   }
   
   &:disabled {
@@ -90,13 +94,13 @@ const Button = styled.button`
 
 const LinkText = styled.p`
   text-align: center;
-  margin-top: 20px;
-  color: #666;
+  margin-top: 24px;
+  color: #666666;
   
   a {
-    color: #667eea;
+    color: #000000;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     
     &:hover {
       text-decoration: underline;

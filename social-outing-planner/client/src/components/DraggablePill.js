@@ -3,22 +3,20 @@ import styled from 'styled-components';
 import { MapPin, Activity, X, Clock, MapPinIcon } from 'lucide-react';
 
 const PillContainer = styled.div`
-  background: ${props => props.type === 'poi' ? 
-    'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)' : 
-    'linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%)'
-  };
-  border: 2px solid ${props => props.type === 'poi' ? '#2196f3' : '#9c27b0'};
-  border-radius: 25px;
-  padding: 12px 16px;
-  margin-bottom: 10px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
   cursor: grab;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   position: relative;
   user-select: none;
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+    border-color: #d0d0d0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
   &:active {
@@ -36,42 +34,43 @@ const PillHeader = styled.div`
 const PillTitle = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-weight: 600;
-  color: ${props => props.type === 'poi' ? '#1976d2' : '#7b1fa2'};
+  color: #000000;
   font-size: 14px;
 `;
 
 const DeleteButton = styled.button`
   background: none;
   border: none;
-  color: #999;
+  color: #999999;
   cursor: pointer;
-  padding: 2px;
-  border-radius: 50%;
-  transition: all 0.2s;
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
   
   &:hover {
-    background: rgba(255, 0, 0, 0.1);
-    color: #f44336;
+    background: #f8f8f8;
+    color: #666666;
   }
 `;
 
 const PillDescription = styled.div`
   font-size: 12px;
-  color: ${props => props.type === 'poi' ? '#1565c0' : '#6a1b9a'};
-  margin-top: 5px;
+  color: #666666;
+  margin-top: 8px;
   opacity: 0.8;
+  line-height: 1.4;
 `;
 
 const PillMeta = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 12px;
+  margin-top: 10px;
   font-size: 11px;
-  color: ${props => props.type === 'poi' ? '#1565c0' : '#6a1b9a'};
-  opacity: 0.7;
+  color: #888888;
+  opacity: 0.8;
 `;
 
 const MetaItem = styled.div`
@@ -103,7 +102,7 @@ const DraggablePill = ({ item, type, onDelete }) => {
     >
       <PillHeader>
         <PillTitle type={type}>
-          {type === 'poi' ? <MapPin size={16} /> : <Activity size={16} />}
+          {type === 'poi' ? <MapPin size={16} color="#666666" /> : <Activity size={16} color="#666666" />}
           {item.name}
         </PillTitle>
         <DeleteButton onClick={handleDelete}>

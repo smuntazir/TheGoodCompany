@@ -17,11 +17,11 @@ const Overlay = styled.div`
 
 const Modal = styled.div`
   background: white;
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 16px;
+  padding: 32px;
   width: 90%;
-  max-width: 400px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  border: 1px solid #f0f0f0;
 `;
 
 const Header = styled.div`
@@ -32,26 +32,28 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  color: #333;
+  color: #000000;
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  letter-spacing: -0.01em;
 `;
 
 const CloseButton = styled.button`
   background: none;
   border: none;
-  color: #666;
+  color: #666666;
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   
   &:hover {
-    background-color: #f5f5f5;
+    background-color: #f8f8f8;
+    color: #000000;
   }
 `;
 
@@ -69,42 +71,45 @@ const InputGroup = styled.div`
 
 const Label = styled.label`
   font-weight: 600;
-  color: #333;
+  color: #000000;
   font-size: 14px;
 `;
 
 const TimeInput = styled.input`
-  padding: 12px;
-  border: 2px solid #e1e5e9;
-  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
   font-size: 16px;
-  transition: border-color 0.3s;
+  transition: all 0.2s ease;
+  background: #fafafa;
   
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #000000;
+    background: #ffffff;
   }
 `;
 
 const EventInfo = styled.div`
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #f0f0f0;
 `;
 
 const EventTitle = styled.div`
   font-weight: 600;
-  color: #333;
-  margin-bottom: 5px;
+  color: #000000;
+  margin-bottom: 8px;
 `;
 
 const EventDate = styled.div`
-  color: #666;
+  color: #666666;
   font-size: 14px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 `;
 
 const ButtonGroup = styled.div`
@@ -115,12 +120,12 @@ const ButtonGroup = styled.div`
 
 const Button = styled.button`
   flex: 1;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 14px;
+  border-radius: 12px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   border: none;
   display: flex;
   align-items: center;
@@ -128,18 +133,21 @@ const Button = styled.button`
   gap: 8px;
   
   ${props => props.primary ? `
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #000000;
     color: white;
     
     &:hover {
+      background: #333333;
       transform: translateY(-1px);
     }
   ` : `
-    background: #f5f5f5;
-    color: #666;
+    background: #f8f8f8;
+    color: #666666;
+    border: 1px solid #e8e8e8;
     
     &:hover {
-      background: #e0e0e0;
+      background: #f0f0f0;
+      color: #000000;
     }
   `}
 `;
@@ -172,7 +180,7 @@ const TimePickerModal = ({ event, onSave, onClose }) => {
       <Modal onClick={(e) => e.stopPropagation()}>
         <Header>
           <Title>
-            <Clock size={24} color="#667eea" />
+            <Clock size={24} color="#000000" />
             Schedule Event
           </Title>
           <CloseButton onClick={onClose}>

@@ -27,24 +27,6 @@
     "createdAt": "2025-08-09T16:27:41.962Z"
   },
   {
-    "_id": "me4hmr0z04plpec1j13n",
-    "name": "Prayer",
-    "description": "",
-    "category": "",
-    "location": "",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:47:22.451Z"
-  },
-  {
-    "_id": "me4hsisg1dqr5avgr7c",
-    "name": "asdfasdf",
-    "description": "",
-    "category": "",
-    "location": "",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:51:51.712Z"
-  },
-  {
     "_id": "me4hvn69118qaphl019q",
     "name": "awsdfasdf",
     "description": "adsf",
@@ -52,24 +34,6 @@
     "location": "",
     "userId": "me4hvji0walu5efwgb",
     "createdAt": "2025-08-09T16:54:17.361Z"
-  },
-  {
-    "_id": "me4i297xiqi8jlaj2rr",
-    "name": "sadf",
-    "description": "",
-    "category": "",
-    "location": "",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:59:25.869Z"
-  },
-  {
-    "_id": "me4i98odcahombw5ik7",
-    "name": "help",
-    "description": "",
-    "category": "",
-    "location": "",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T17:04:51.757Z"
   },
   {
     "_id": "me4lkqk6jwp1bjk40ln",
