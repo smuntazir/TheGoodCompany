@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "me4gsj4eb5dgdfbnix7",
+    "name": "Prayer",
+    "description": "its literally a conversation with Allah. bro.",
+    "category": "spiritual",
+    "duration": 5,
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T16:23:52.527Z"
+  },
+  {
+    "_id": "me4gxlc0b3dlb71jfdf",
+    "name": "Eating",
+    "description": "",
+    "category": "",
+    "duration": null,
+    "userId": "me4gxbmbtfxb3kmi62",
+    "createdAt": "2025-08-09T16:27:48.672Z"
+  },
+  {
+    "_id": "me4icc18saerbhwrfun",
+    "name": "asdfkljasdfkl;ajs",
+    "description": "",
+    "category": "",
+    "duration": null,
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T17:07:16.076Z"
+  }
+]

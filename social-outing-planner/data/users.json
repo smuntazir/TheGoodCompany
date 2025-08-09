@@ -1,0 +1,30 @@
+[
+  {
+    "id": "me4gpkc7bufq9lu9dx6",
+    "username": "Bismillah",
+    "email": "muntazirsal@gmail.com",
+    "password": "$2a$10$yN6NCx0N6JC5t4k6D5RZluZbLgYQWjIIX.RtLp6aLcfpPH84ZvKz6",
+    "createdAt": "2025-08-09T16:21:34.135Z"
+  },
+  {
+    "id": "me4gxbmbtfxb3kmi62",
+    "username": "Al-ḥamdu lillāh",
+    "email": "madeanapp@work.com",
+    "password": "$2a$10$z266zl.LxOfsbxS.ek47k.tWj0MDGoPGP3wGW3mfynxkhxm3p2uh2",
+    "createdAt": "2025-08-09T16:27:36.083Z"
+  },
+  {
+    "id": "me4hvji0walu5efwgb",
+    "username": "a",
+    "email": "a@a.a",
+    "password": "$2a$10$7l0DKhE2t0pY4us7C5mziOB7xD6p.D.tGtTlm6mgUzWrhkjt5YYLm",
+    "createdAt": "2025-08-09T16:54:12.600Z"
+  },
+  {
+    "id": "me4lk04vhgbjs2vebma",
+    "username": "safiyya",
+    "email": "whateve@whatever.com",
+    "password": "$2a$10$nnDK3fKN8mt2R4vGhcdr6uCS/8uaU2ZpZHTw3/WpZ.tcR6JOLEiMe",
+    "createdAt": "2025-08-09T18:37:12.751Z"
+  }
+]

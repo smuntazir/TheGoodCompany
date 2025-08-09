@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "me4gr3lwvnpyewx8pqc",
+    "name": "Masjid An-Nabawi",
+    "description": "This is literally the most Blessed place in the entire cosmos bro.",
+    "category": "",
+    "location": "Al Haram, Madinah 42311, Saudi Arabia",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T16:22:45.764Z"
+  },
+  {
+    "_id": "me4gttppho0unmau4nk",
+    "name": "Makkah Al-Mukarramah",
+    "description": "",
+    "category": "",
+    "location": "",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T16:24:52.909Z"
+  },
+  {
+    "_id": "me4gxg5mozydgtqm3o",
+    "name": "Home",
+    "description": "",
+    "category": "",
+    "location": "",
+    "userId": "me4gxbmbtfxb3kmi62",
+    "createdAt": "2025-08-09T16:27:41.962Z"
+  },
+  {
+    "_id": "me4hmr0z04plpec1j13n",
+    "name": "Prayer",
+    "description": "",
+    "category": "",
+    "location": "",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T16:47:22.451Z"
+  },
+  {
+    "_id": "me4hsisg1dqr5avgr7c",
+    "name": "asdfasdf",
+    "description": "",
+    "category": "",
+    "location": "",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T16:51:51.712Z"
+  },
+  {
+    "_id": "me4hvn69118qaphl019q",
+    "name": "awsdfasdf",
+    "description": "adsf",
+    "category": "",
+    "location": "",
+    "userId": "me4hvji0walu5efwgb",
+    "createdAt": "2025-08-09T16:54:17.361Z"
+  },
+  {
+    "_id": "me4i297xiqi8jlaj2rr",
+    "name": "sadf",
+    "description": "",
+    "category": "",
+    "location": "",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T16:59:25.869Z"
+  },
+  {
+    "_id": "me4i98odcahombw5ik7",
+    "name": "help",
+    "description": "",
+    "category": "",
+    "location": "",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-08-09T17:04:51.757Z"
+  },
+  {
+    "_id": "me4lkqk6jwp1bjk40ln",
+    "name": "Darul Qasim",
+    "description": "Sh. Amin",
+    "category": "",
+    "location": "Chicago",
+    "userId": "me4lk04vhgbjs2vebma",
+    "createdAt": "2025-08-09T18:37:46.998Z"
+  }
+]
