@@ -115,7 +115,7 @@ const TextArea = styled.textarea`
 const InputIcon = styled.div`
   position: absolute;
   left: 14px;
-  top: ${props => props.textarea ? '42px' : '38px'};
+  top: ${props => props.$textarea ? '42px' : '38px'};
   color: #999999;
 `;
 
@@ -135,7 +135,7 @@ const Button = styled.button`
   transition: all 0.2s ease;
   border: none;
   
-  ${props => props.primary ? `
+  ${props => props.$primary ? `
     background: #000000;
     color: white;
     
@@ -235,7 +235,7 @@ const POIForm = ({ onSubmit, onClose }) => {
 
           <InputGroup>
             <Label>Description</Label>
-            <InputIcon textarea>
+            <InputIcon $textarea>
               <FileText size={16} />
             </InputIcon>
             <TextArea
@@ -250,7 +250,7 @@ const POIForm = ({ onSubmit, onClose }) => {
             <Button type="button" onClick={onClose}>
               Cancel
             </Button>
-            <Button type="submit" primary>
+            <Button type="submit" $primary>
               Add Place
             </Button>
           </ButtonGroup>

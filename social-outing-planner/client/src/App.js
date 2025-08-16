@@ -179,7 +179,7 @@ const App = () => {
               ) : <Navigate to="/login" />
             } 
           />
-          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </Router>
       <ToastContainer position="top-right" autoClose={3000} />

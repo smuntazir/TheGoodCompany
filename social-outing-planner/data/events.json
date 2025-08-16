@@ -150,5 +150,31 @@
     "endTime": "10:00",
     "userId": "me4gpkc7bufq9lu9dx6",
     "createdAt": "2025-08-09T19:05:09.244Z"
+  },
+  {
+    "_id": "meewu4gg2px35mqhd9y",
+    "title": "Mat1 Gym",
+    "description": "butterflies and deadlifts",
+    "type": "poi",
+    "date": "2025-08-16",
+    "location": "Mat 1",
+    "category": "Google Office",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "userId": "meewotk69ajtuywy9lf",
+    "createdAt": "2025-08-16T23:50:42.448Z"
+  },
+  {
+    "_id": "meewvq8ftlu3tki68o",
+    "title": "Deadlifting",
+    "description": "Deadlifting",
+    "type": "aoi",
+    "date": "2025-08-16",
+    "duration": 35,
+    "category": "Excercise",
+    "startTime": "17:00",
+    "endTime": "17:30",
+    "userId": "meewotk69ajtuywy9lf",
+    "createdAt": "2025-08-16T23:51:57.328Z"
   }
 ]

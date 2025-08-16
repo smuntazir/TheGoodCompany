@@ -43,5 +43,14 @@
     "location": "Chicago",
     "userId": "me4lk04vhgbjs2vebma",
     "createdAt": "2025-08-09T18:37:46.998Z"
+  },
+  {
+    "_id": "meewtvqy84ak8l8xoel",
+    "name": "Mat1 Gym",
+    "description": "butterflies and deadlifts",
+    "category": "Google Office",
+    "location": "Mat 1",
+    "userId": "meewotk69ajtuywy9lf",
+    "createdAt": "2025-08-16T23:50:31.162Z"
   }
 ]

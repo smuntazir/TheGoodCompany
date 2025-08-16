@@ -26,5 +26,12 @@
     "email": "whateve@whatever.com",
     "password": "$2a$10$nnDK3fKN8mt2R4vGhcdr6uCS/8uaU2ZpZHTw3/WpZ.tcR6JOLEiMe",
     "createdAt": "2025-08-09T18:37:12.751Z"
+  },
+  {
+    "id": "meewotk69ajtuywy9lf",
+    "username": "mansoor",
+    "email": "syedm101@gmail.com",
+    "password": "$2a$10$tXQH97FzZPLts5eIG17qTuiaMQdBrDdYi8851XWe.SxCLkQSS/aH.",
+    "createdAt": "2025-08-16T23:46:35.046Z"
   }
 ]
