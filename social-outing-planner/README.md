@@ -25,46 +25,69 @@ A modern social webapp for planning outings with friends. Create lists of Places
 - Lucide React for icons
 
 **Backend:**
-- Node.js with Express.js
-- MongoDB with Mongoose ODM
+- Python Flask web framework
+- File-based JSON storage (users, POIs, AOIs, events)
 - JWT authentication
-- bcryptjs for password hashing
+- bcrypt for password hashing
 - CORS enabled for cross-origin requests
 
 ## Setup Instructions 🚀
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local installation or MongoDB Atlas)
+- Python 3.7 or higher
+- Node.js (v14 or higher) for the React frontend
 - npm or yarn
 
 ### Installation
 
 1. **Clone and navigate to the project:**
    ```bash
-   cd /Users/muntazir/CascadeProjects/social-outing-planner
+   cd social-outing-planner
    ```
 
-2. **Install dependencies:**
+2. **Set up Python virtual environment:**
    ```bash
-   npm run install-all
+   python -m venv venv
    ```
 
-3. **Set up environment variables:**
+3. **Activate virtual environment:**
    ```bash
-   cp .env.example .env
+   # Windows
+   venv\Scripts\activate
+   
+   # macOS/Linux
+   source venv/bin/activate
    ```
-   Edit `.env` and update the following:
-   - `MONGODB_URI`: Your MongoDB connection string
-   - `JWT_SECRET`: A secure secret key for JWT tokens
 
-4. **Start the development servers:**
+4. **Install Python dependencies:**
    ```bash
-   npm run dev
+   pip install -r requirements.txt
+   ```
+
+5. **Install frontend dependencies:**
+   ```bash
+   cd client
+   npm install
+   cd ..
+   ```
+
+6. **Start the development servers:**
+   
+   **Backend (Python Flask):**
+   ```bash
+   # Make sure virtual environment is activated
+   python app.py
+   ```
+   
+   **Frontend (React):**
+   ```bash
+   # In a new terminal
+   cd client
+   npm start
    ```
 
    This will start:
-   - Backend server on http://localhost:5000
+   - Backend server on http://localhost:5001
    - Frontend development server on http://localhost:3000
 
 ## Usage Guide 📱
@@ -79,16 +102,21 @@ A modern social webapp for planning outings with friends. Create lists of Places
 
 ```
 social-outing-planner/
-├── server.js              # Express backend server
-├── package.json           # Backend dependencies
-├── .env.example          # Environment variables template
-├── client/               # React frontend
-│   ├── package.json      # Frontend dependencies
-│   ├── public/           # Static assets
+├── app.py                # Python Flask backend server
+├── requirements.txt      # Python dependencies
+├── venv/                # Python virtual environment
+├── data/                # JSON data files
+│   ├── users.json       # User data
+│   ├── pois.json        # Places of Interest
+│   ├── aois.json        # Activities of Interest
+│   └── events.json      # Calendar events
+├── client/              # React frontend
+│   ├── package.json     # Frontend dependencies
+│   ├── public/          # Static assets
 │   └── src/
-│       ├── App.js        # Main app component
-│       ├── index.js      # React entry point
-│       └── components/   # React components
+│       ├── App.js       # Main app component
+│       ├── index.js     # React entry point
+│       └── components/  # React components
 │           ├── Login.js
 │           ├── Register.js
 │           ├── Dashboard.js
