@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MapPin, Activity, X, Clock, MapPinIcon } from 'lucide-react';
+import { MapPin, Activity, X, Clock, MapPinIcon, Calendar, CalendarCheck } from 'lucide-react';
 
 const PillContainer = styled.div`
   background: #ffffff;
-  border: 1px solid #e8e8e8;
+  border: 1px solid ${props => props.$isScheduled ? '#4ade80' : '#e8e8e8'};
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
@@ -12,10 +12,14 @@ const PillContainer = styled.div`
   transition: all 0.2s ease;
   position: relative;
   user-select: none;
+  ${props => props.$isScheduled && `
+    background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+    box-shadow: 0 2px 8px rgba(74, 222, 128, 0.1);
+  `}
   
   &:hover {
     transform: translateY(-1px);
-    border-color: #d0d0d0;
+    border-color: ${props => props.$isScheduled ? '#22c55e' : '#d0d0d0'};
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
@@ -31,6 +35,12 @@ const PillHeader = styled.div`
   margin-bottom: 5px;
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
+
 const PillTitle = styled.div`
   display: flex;
   align-items: center;
@@ -40,7 +50,7 @@ const PillTitle = styled.div`
   font-size: 14px;
 `;
 
-const DeleteButton = styled.button`
+const ActionButton = styled.button`
   background: none;
   border: none;
   color: #999999;
@@ -52,6 +62,15 @@ const DeleteButton = styled.button`
   &:hover {
     background: #f8f8f8;
     color: #666666;
+  }
+`;
+
+const ScheduleButton = styled(ActionButton)`
+  color: ${props => props.$isScheduled ? '#22c55e' : '#666666'};
+  
+  &:hover {
+    background: ${props => props.$isScheduled ? '#f0fdf4' : '#f8f8f8'};
+    color: ${props => props.$isScheduled ? '#16a34a' : '#333333'};
   }
 `;
 
@@ -79,10 +98,15 @@ const MetaItem = styled.div`
   gap: 4px;
 `;
 
-const DraggablePill = ({ item, type, onDelete }) => {
+const DraggablePill = ({ item, type, onDelete, onSchedule, isScheduled }) => {
   const handleDelete = (e) => {
     e.stopPropagation();
     onDelete();
+  };
+
+  const handleSchedule = (e) => {
+    e.stopPropagation();
+    onSchedule(item._id, type, !isScheduled);
   };
 
   const handleDragStart = (e) => {
@@ -97,6 +121,7 @@ const DraggablePill = ({ item, type, onDelete }) => {
   return (
     <PillContainer 
       type={type}
+      $isScheduled={isScheduled}
       draggable={true}
       onDragStart={handleDragStart}
     >
@@ -105,9 +130,18 @@ const DraggablePill = ({ item, type, onDelete }) => {
           {type === 'poi' ? <MapPin size={16} color="#666666" /> : <Activity size={16} color="#666666" />}
           {item.name}
         </PillTitle>
-        <DeleteButton onClick={handleDelete}>
-          <X size={14} />
-        </DeleteButton>
+        <ButtonGroup>
+          <ScheduleButton 
+            onClick={handleSchedule}
+            $isScheduled={isScheduled}
+            title={isScheduled ? 'Unschedule' : 'Schedule'}
+          >
+            {isScheduled ? <CalendarCheck size={14} /> : <Calendar size={14} />}
+          </ScheduleButton>
+          <ActionButton onClick={handleDelete}>
+            <X size={14} />
+          </ActionButton>
+        </ButtonGroup>
       </PillHeader>
       
       {item.description && (

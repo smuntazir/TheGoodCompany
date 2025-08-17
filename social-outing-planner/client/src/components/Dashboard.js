@@ -246,6 +246,8 @@ const Dashboard = ({
   onDeletePOI, 
   onDeleteAOI, 
   onDeleteEvent, 
+  onScheduleItem,
+  onUnscheduleItem,
   onLogout 
 }) => {
   const [showPOIForm, setShowPOIForm] = useState(false);
@@ -272,6 +274,29 @@ const Dashboard = ({
 
   const navigateMonth = (direction) => {
     setCurrentDate(prev => direction === 'next' ? addMonths(prev, 1) : subMonths(prev, 1));
+  };
+
+  // Check if an item is scheduled
+  const isItemScheduled = (itemId, type) => {
+    return events.some(event => event.itemId === itemId && event.type === type);
+  };
+
+  // Handle scheduling/unscheduling
+  const handleScheduleToggle = async (itemId, type, shouldSchedule) => {
+    if (shouldSchedule) {
+      // For now, schedule for today - you could enhance this with a date picker
+      const today = new Date();
+      const scheduleData = {
+        type,
+        itemId,
+        date: format(today, 'yyyy-MM-dd'),
+        startTime: '09:00',
+        endTime: '10:00'
+      };
+      await onScheduleItem(scheduleData);
+    } else {
+      await onUnscheduleItem(type, itemId);
+    }
   };
 
 
@@ -401,6 +426,8 @@ const Dashboard = ({
                 item={poi}
                 type="poi"
                 onDelete={() => onDeletePOI(poi._id)}
+                onSchedule={handleScheduleToggle}
+                isScheduled={isItemScheduled(poi._id, 'poi')}
               />
             ))}
           </ListContainer>
@@ -423,6 +450,8 @@ const Dashboard = ({
                 item={aoi}
                 type="aoi"
                 onDelete={() => onDeleteAOI(aoi._id)}
+                onSchedule={handleScheduleToggle}
+                isScheduled={isItemScheduled(aoi._id, 'aoi')}
               />
             ))}
           </ListContainer>

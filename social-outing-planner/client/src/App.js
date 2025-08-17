@@ -131,6 +131,26 @@ const App = () => {
     }
   };
 
+  const scheduleItem = async (scheduleData) => {
+    try {
+      const response = await axios.post('/api/schedule', scheduleData);
+      setEvents([...events, response.data]);
+      toast.success(`${scheduleData.type.toUpperCase()} scheduled!`);
+    } catch (error) {
+      toast.error(`Error scheduling ${scheduleData.type}`);
+    }
+  };
+
+  const unscheduleItem = async (type, itemId) => {
+    try {
+      await axios.delete(`/api/schedule/${type}/${itemId}`);
+      setEvents(events.filter(event => !(event.itemId === itemId && event.type === type)));
+      toast.success(`${type.toUpperCase()} unscheduled!`);
+    } catch (error) {
+      toast.error(`Error unscheduling ${type}`);
+    }
+  };
+
   // Drag and drop is now handled in Dashboard component
 
   if (loading) {
@@ -174,6 +194,8 @@ const App = () => {
                   onDeletePOI={deletePOI}
                   onDeleteAOI={deleteAOI}
                   onDeleteEvent={deleteEvent}
+                  onScheduleItem={scheduleItem}
+                  onUnscheduleItem={unscheduleItem}
                   onLogout={handleLogout}
                 />
               ) : <Navigate to="/login" />
