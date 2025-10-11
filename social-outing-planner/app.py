@@ -265,13 +265,37 @@ def delete_aoi(current_user, aoi_id):
     except Exception as error:
         return jsonify({'error': str(error)}), 500
 
+# Users Route
+@app.route('/api/users', methods=['GET'])
+@token_required
+def get_users(current_user):
+    try:
+        users = read_json_file(USERS_FILE)
+        # Return users excluding current user and exclude sensitive data
+        user_list = [
+            {
+                'id': user['id'],
+                'username': user['username'],
+                'email': user['email']
+            }
+            for user in users if user['id'] != current_user['userId']
+        ]
+        return jsonify(user_list)
+    except Exception as error:
+        return jsonify({'error': str(error)}), 500
+
 # Calendar Event Routes
 @app.route('/api/events', methods=['GET'])
 @token_required
 def get_events(current_user):
     try:
         events = read_json_file(EVENTS_FILE)
-        user_events = [event for event in events if event.get('userId') == current_user['userId']]
+        # Return events where user is the creator OR is in the sharedWith list
+        user_events = [
+            event for event in events 
+            if event.get('userId') == current_user['userId'] or 
+            current_user['userId'] in event.get('sharedWith', [])
+        ]
         return jsonify(user_events)
     except Exception as error:
         return jsonify({'error': str(error)}), 500
@@ -283,10 +307,15 @@ def create_event(current_user):
         data = request.get_json()
         events = read_json_file(EVENTS_FILE)
         
+        # Extract sharedWith from data, default to empty list if not provided
+        shared_with = data.get('sharedWith', [])
+        
         event = {
             '_id': generate_id(),
             **data,
             'userId': current_user['userId'],
+            'sharedWith': shared_with,
+            'createdBy': current_user['username'],
             'createdAt': datetime.now().isoformat()
         }
         
@@ -302,7 +331,18 @@ def create_event(current_user):
 def delete_event(current_user, event_id):
     try:
         events = read_json_file(EVENTS_FILE)
-        filtered_events = [event for event in events if not (event.get('_id') == event_id and event.get('userId') == current_user['userId'])]
+        
+        # Find the event to check if user is the creator
+        event_to_delete = next((e for e in events if e.get('_id') == event_id), None)
+        
+        if not event_to_delete:
+            return jsonify({'error': 'Event not found'}), 404
+        
+        # Only allow the creator to delete the event
+        if event_to_delete.get('userId') != current_user['userId']:
+            return jsonify({'error': 'Only the event creator can delete this event'}), 403
+        
+        filtered_events = [event for event in events if event.get('_id') != event_id]
         write_json_file(EVENTS_FILE, filtered_events)
         
         return jsonify({'message': 'Event deleted successfully'})

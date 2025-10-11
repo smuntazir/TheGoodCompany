@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { LogOut, Plus, MapPin, Activity, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
+import { LogOut, Plus, MapPin, Activity, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, Users } from 'lucide-react';
 
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, addMonths, subMonths, startOfWeek, endOfWeek } from 'date-fns';
 
@@ -208,7 +208,7 @@ const EventsContainer = styled.div`
 `;
 
 const EventPill = styled.div`
-  background: ${props => props.type === 'poi' ? '#f0f0f0' : '#f8f8f8'};
+  background: ${props => props.$isShared ? '#e8f4fd' : (props.type === 'poi' ? '#f0f0f0' : '#f8f8f8')};
   color: ${props => props.type === 'poi' ? '#000000' : '#333333'};
   padding: 6px 10px;
   border-radius: 8px;
@@ -218,12 +218,12 @@ const EventPill = styled.div`
   transition: all 0.2s ease;
   margin-bottom: 2px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 4px;
-  border: 1px solid ${props => props.type === 'poi' ? '#e0e0e0' : '#e8e8e8'};
+  border: 1px solid ${props => props.$isShared ? '#b3d9f2' : (props.type === 'poi' ? '#e0e0e0' : '#e8e8e8')};
   
   &:hover {
-    background: ${props => props.type === 'poi' ? '#e8e8e8' : '#f0f0f0'};
+    background: ${props => props.$isShared ? '#d6eaf8' : (props.type === 'poi' ? '#e8e8e8' : '#f0f0f0')};
   }
 `;
 
@@ -233,6 +233,22 @@ const TimeDisplay = styled.span`
   display: flex;
   align-items: center;
   gap: 2px;
+`;
+
+const EventHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+`;
+
+const SharedIndicator = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 9px;
+  opacity: 0.8;
+  color: #0066cc;
 `;
 
 const Dashboard = ({ 
@@ -352,23 +368,39 @@ const Dashboard = ({
           {format(day, 'd')}
         </DayNumber>
         <EventsContainer>
-          {dayEvents.map((event, eventIndex) => (
-            <EventPill
-              key={event._id}
-              type={event.type}
-              onClick={() => onDeleteEvent(event._id)}
-              title="Click to remove"
-            >
-              <div>{event.title}</div>
-              {event.startTime && (
-                <TimeDisplay>
-                  <Clock size={8} />
-                  {event.startTime}
-                  {event.endTime && ` - ${event.endTime}`}
-                </TimeDisplay>
-              )}
-            </EventPill>
-          ))}
+          {dayEvents.map((event, eventIndex) => {
+            const isShared = event.sharedWith && event.sharedWith.length > 0;
+            return (
+              <EventPill
+                key={event._id}
+                type={event.type}
+                $isShared={isShared}
+                onClick={() => onDeleteEvent(event._id)}
+                title={isShared ? `Shared event by ${event.createdBy || 'Unknown'}. Click to remove` : 'Click to remove'}
+              >
+                <EventHeader>
+                  <div>{event.title}</div>
+                  {isShared && (
+                    <SharedIndicator title={`Shared with ${event.sharedWith.length} user(s)`}>
+                      <Users size={10} />
+                    </SharedIndicator>
+                  )}
+                </EventHeader>
+                {event.startTime && (
+                  <TimeDisplay>
+                    <Clock size={8} />
+                    {event.startTime}
+                    {event.endTime && ` - ${event.endTime}`}
+                  </TimeDisplay>
+                )}
+                {isShared && event.createdBy && (
+                  <TimeDisplay style={{ fontSize: '9px' }}>
+                    by {event.createdBy}
+                  </TimeDisplay>
+                )}
+              </EventPill>
+            );
+          })}
         </EventsContainer>
       </DayCell>
     );

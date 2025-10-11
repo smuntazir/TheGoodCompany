@@ -24,8 +24,10 @@ const App = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    const userData = localStorage.getItem('user');
+    if (token && userData) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      setUser(JSON.parse(userData));
       fetchUserData();
     } else {
       setLoading(false);
@@ -43,10 +45,10 @@ const App = () => {
       setPois(poisRes.data);
       setAois(aoisRes.data);
       setEvents(eventsRes.data);
-      setUser({ token: localStorage.getItem('token') });
     } catch (error) {
       console.error('Error fetching user data:', error);
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
       delete axios.defaults.headers.common['Authorization'];
     } finally {
       setLoading(false);
@@ -55,6 +57,7 @@ const App = () => {
 
   const handleLogin = (token, userData) => {
     localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData));
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     setUser(userData);
     fetchUserData();
@@ -63,6 +66,7 @@ const App = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     delete axios.defaults.headers.common['Authorization'];
     setUser(null);
     setPois([]);
@@ -127,7 +131,11 @@ const App = () => {
       setEvents(events.filter(event => event._id !== id));
       toast.success('Event removed');
     } catch (error) {
-      toast.error('Error removing event');
+      if (error.response?.status === 403) {
+        toast.error('Only the event creator can delete this event');
+      } else {
+        toast.error(error.response?.data?.error || 'Error removing event');
+      }
     }
   };
 

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { X, Clock, Calendar, Save } from 'lucide-react';
+import { X, Clock, Calendar, Save, Users } from 'lucide-react';
+import axios from 'axios';
 
 const Overlay = styled.div`
   position: fixed;
@@ -152,16 +153,85 @@ const Button = styled.button`
   `}
 `;
 
+const UserSelectionContainer = styled.div`
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+`;
+
+const UserCheckboxItem = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #f0f0f0;
+  }
+`;
+
+const Checkbox = styled.input`
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
+
+const UserInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const UserName = styled.span`
+  font-weight: 600;
+  color: #000000;
+  font-size: 14px;
+`;
+
+const UserEmail = styled.span`
+  font-size: 12px;
+  color: #666666;
+`;
+
 const TimePickerModal = ({ event, onSave, onClose }) => {
   const [startTime, setStartTime] = useState(event.startTime || '09:00');
   const [endTime, setEndTime] = useState(event.endTime || '10:00');
+  const [users, setUsers] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [loadingUsers, setLoadingUsers] = useState(true);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('/api/users');
+        setUsers(response.data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      } finally {
+        setLoadingUsers(false);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+  const handleUserToggle = (userId) => {
+    setSelectedUsers(prev => 
+      prev.includes(userId) 
+        ? prev.filter(id => id !== userId)
+        : [...prev, userId]
+    );
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSave({
       ...event,
       startTime,
-      endTime
+      endTime,
+      sharedWith: selectedUsers
     });
   };
 
@@ -215,6 +285,38 @@ const TimePickerModal = ({ event, onSave, onClose }) => {
               onChange={(e) => setEndTime(e.target.value)}
               required
             />
+          </InputGroup>
+
+          <InputGroup>
+            <Label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Users size={16} />
+              Share with other users (optional)
+            </Label>
+            <UserSelectionContainer>
+              {loadingUsers ? (
+                <div style={{ textAlign: 'center', color: '#666666', fontSize: '14px' }}>
+                  Loading users...
+                </div>
+              ) : users.length === 0 ? (
+                <div style={{ textAlign: 'center', color: '#666666', fontSize: '14px' }}>
+                  No other users available
+                </div>
+              ) : (
+                users.map(user => (
+                  <UserCheckboxItem key={user.id}>
+                    <Checkbox
+                      type="checkbox"
+                      checked={selectedUsers.includes(user.id)}
+                      onChange={() => handleUserToggle(user.id)}
+                    />
+                    <UserInfo>
+                      <UserName>{user.username}</UserName>
+                      <UserEmail>{user.email}</UserEmail>
+                    </UserInfo>
+                  </UserCheckboxItem>
+                ))
+              )}
+            </UserSelectionContainer>
           </InputGroup>
 
           <ButtonGroup>
