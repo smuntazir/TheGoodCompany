@@ -236,7 +236,10 @@ const TimePickerModal = ({ event, onSave, onClose }) => {
   };
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
+    // Parse as local date to avoid timezone issues
+    // Split 'yyyy-MM-dd' and create local Date object
+    const [year, month, day] = dateString.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
     return date.toLocaleDateString('en-US', { 
       weekday: 'long', 
       year: 'numeric', 

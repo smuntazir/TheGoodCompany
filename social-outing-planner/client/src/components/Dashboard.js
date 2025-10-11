@@ -279,8 +279,10 @@ const Dashboard = ({
 
   const getEventsForDay = (day) => {
     return events.filter(event => {
-      // Fix date comparison - use local date string comparison to avoid timezone issues
-      const eventDate = new Date(event.date);
+      // Parse event date as local date to avoid timezone issues
+      // Split 'yyyy-MM-dd' and create local Date object
+      const [year, month, dayNum] = event.date.split('-').map(Number);
+      const eventDate = new Date(year, month - 1, dayNum);
       const dayDate = new Date(day);
       return eventDate.toDateString() === dayDate.toDateString();
     });
