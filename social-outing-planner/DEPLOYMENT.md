@@ -24,35 +24,16 @@ The app shows "404 Not Found" because the React frontend hasn't been built for p
 
 3. **Redeploy on Digital Ocean**
 
-### Option 2: Configure Digital Ocean to Build on Deploy
+### Option 2: Configure Digital Ocean Commands
 
-If you're using Digital Ocean App Platform:
+Since the `client/build` folder is already committed, you just need to install Python dependencies:
 
-1. **Update your App Spec** to include a build command:
-   ```yaml
-   name: social-outing-planner
-   services:
-   - name: web
-     github:
-       repo: your-username/your-repo
-       branch: main
-     build_command: |
-       cd client && npm install && npm run build && cd ..
-       pip install -r requirements.txt
-     run_command: python app.py
-     environment_slug: python
-     envs:
-     - key: PORT
-       value: "8080"
-     - key: FLASK_DEBUG
-       value: "false"
-     - key: JWT_SECRET
-       value: "your-secure-secret-key-here"
-   ```
+**In Digital Ocean App Platform Settings:**
 
-2. **Or use the startup script:**
-   - Make the script executable: `chmod +x start.sh`
-   - In Digital Ocean, set the run command to: `bash start.sh`
+- **Build Command**: `pip install -r requirements.txt`
+- **Run Command**: `python3 app.py`
+
+The `.do/app.yaml` file in the repo has the correct configuration.
 
 ### Option 3: Quick Fix - Build Now
 

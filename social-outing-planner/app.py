@@ -350,6 +350,12 @@ def delete_event(current_user, event_id):
     except Exception as error:
         return jsonify({'error': str(error)}), 500
 
+# Serve static files from React build
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    build_folder = 'client/build'
+    return send_from_directory(os.path.join(build_folder, 'static'), filename)
+
 # Serve React app (for production)
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -363,17 +369,19 @@ def serve_react_app(path):
             'message': 'Please run "cd client && npm run build" to build the frontend first'
         }), 500
     
+    # Try to serve the requested file if it exists
     if path != "" and os.path.exists(os.path.join(build_folder, path)):
         return send_from_directory(build_folder, path)
+    
+    # Otherwise serve index.html for client-side routing
+    index_path = os.path.join(build_folder, 'index.html')
+    if os.path.exists(index_path):
+        return send_from_directory(build_folder, 'index.html')
     else:
-        index_path = os.path.join(build_folder, 'index.html')
-        if os.path.exists(index_path):
-            return send_from_directory(build_folder, 'index.html')
-        else:
-            return jsonify({
-                'error': 'Frontend not found',
-                'message': 'index.html not found in build folder'
-            }), 500
+        return jsonify({
+            'error': 'Frontend not found',
+            'message': 'index.html not found in build folder'
+        }), 500
 
 if __name__ == '__main__':
     initialize_storage()

@@ -31,6 +31,6 @@ services:
   instance_count: 1
   instance_size_slug: apps-s-1vcpu-0.5gb
   name: thegoodcompany-social-outing-pla
-  build_command: cd client && npm install && npm run build && cd .. && pip install -r requirements.txt
+  build_command: pip install -r requirements.txt
   run_command: python3 app.py
   source_dir: social-outing-planner
