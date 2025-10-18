@@ -353,8 +353,15 @@ def delete_event(current_user, event_id):
 # Serve static files from React build
 @app.route('/static/<path:filename>')
 def serve_static(filename):
-    build_folder = 'client/build'
-    return send_from_directory(os.path.join(build_folder, 'static'), filename)
+    static_dir = 'client/build/static'
+    file_path = os.path.join(static_dir, filename)
+    print(f'Attempting to serve static file: {filename}')
+    print(f'Static directory: {static_dir}')
+    print(f'Full file path: {file_path}')
+    print(f'File exists: {os.path.exists(file_path)}')
+    if os.path.exists(static_dir):
+        print(f'Static dir contents: {os.listdir(static_dir)}')
+    return send_from_directory(static_dir, filename)
 
 # Serve React app (for production)
 @app.route('/', defaults={'path': ''})
