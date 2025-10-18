@@ -1,7 +1,17 @@
 # Deployment Guide for Digital Ocean
 
+## Recent Fix (Oct 18, 2025)
+Fixed static file serving by properly configuring Flask's `static_folder` and `static_url_path` parameters. The app now correctly serves React build files in production.
+
+### Quick Deploy Steps
+1. Commit the changes: `git add app.py DEPLOYMENT.md && git commit -m "Fix static file serving for production"`
+2. Push to main: `git push origin main`
+3. Digital Ocean will automatically redeploy
+4. Wait for build to complete (~2 minutes)
+5. Visit your app URL - it should now work!
+
 ## Problem
-The app shows "404 Not Found" because the React frontend hasn't been built for production. The Flask server is trying to serve files from `client/build` which doesn't exist.
+The app was showing a blank page with 404 errors for static files (JS/CSS) because Flask's static file configuration wasn't set correctly.
 
 ## Solution
 

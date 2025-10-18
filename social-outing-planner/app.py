@@ -8,7 +8,10 @@ from datetime import datetime, timedelta
 from functools import wraps
 import uuid
 
-app = Flask(__name__)
+# Configure Flask to serve React build files
+app = Flask(__name__, 
+            static_folder='client/build',
+            static_url_path='')
 CORS(app)
 
 # Configuration
@@ -350,45 +353,17 @@ def delete_event(current_user, event_id):
     except Exception as error:
         return jsonify({'error': str(error)}), 500
 
-# Serve static files from React build
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    static_dir = 'client/build/static'
-    file_path = os.path.join(static_dir, filename)
-    print(f'Attempting to serve static file: {filename}')
-    print(f'Static directory: {static_dir}')
-    print(f'Full file path: {file_path}')
-    print(f'File exists: {os.path.exists(file_path)}')
-    if os.path.exists(static_dir):
-        print(f'Static dir contents: {os.listdir(static_dir)}')
-    return send_from_directory(static_dir, filename)
-
-# Serve React app (for production)
+# Serve React app for client-side routing
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_react_app(path):
-    build_folder = 'client/build'
-    
-    # Check if build folder exists
-    if not os.path.exists(build_folder):
-        return jsonify({
-            'error': 'Frontend not built',
-            'message': 'Please run "cd client && npm run build" to build the frontend first'
-        }), 500
-    
-    # Try to serve the requested file if it exists
-    if path != "" and os.path.exists(os.path.join(build_folder, path)):
-        return send_from_directory(build_folder, path)
-    
-    # Otherwise serve index.html for client-side routing
-    index_path = os.path.join(build_folder, 'index.html')
-    if os.path.exists(index_path):
-        return send_from_directory(build_folder, 'index.html')
+    # If path is empty or doesn't exist as a file, serve index.html for React Router
+    # Flask will automatically serve static files (js, css, etc.) from the static_folder
+    if path and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
     else:
-        return jsonify({
-            'error': 'Frontend not found',
-            'message': 'index.html not found in build folder'
-        }), 500
+        # Serve index.html for all other routes (React Router will handle them)
+        return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     initialize_storage()
