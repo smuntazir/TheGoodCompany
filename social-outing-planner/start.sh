@@ -22,4 +22,4 @@ pip install -r requirements.txt
 
 # Start the Flask application
 echo "Starting Flask server on port ${PORT:-8080}..."
-python app.py
+python3 app.py

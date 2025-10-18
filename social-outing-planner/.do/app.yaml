@@ -1,0 +1,36 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+envs:
+- key: JWT_SECRET
+  scope: RUN_AND_BUILD_TIME
+  type: SECRET
+  value: EV[1:1Q2GEcOjtMW/x0SyySJZBO5w3kfXL7za:HSl/MODDsPv8DagkkFG8tV9/XQQ+gfgAGVWFjpiF]
+- key: FLASK_DEBUG
+  scope: RUN_AND_BUILD_TIME
+  value: "false"
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: thegoodcompany-social-outing-pla
+    match:
+      authority:
+        exact: ""
+      path:
+        prefix: /
+name: the-good-company
+region: sfo
+services:
+- environment_slug: python
+  github:
+    branch: main
+    repo: smuntazir/TheGoodCompany
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: thegoodcompany-social-outing-pla
+  build_command: cd client && npm install && npm run build && cd .. && pip install -r requirements.txt
+  run_command: python3 app.py
+  source_dir: social-outing-planner
