@@ -176,5 +176,71 @@
     "endTime": "17:30",
     "userId": "meewotk69ajtuywy9lf",
     "createdAt": "2025-08-16T23:51:57.328Z"
+  },
+  {
+    "_id": "c11bc058-1c3b-45d7-ae1c-166c8ea1a1d6",
+    "title": "Masjid An-Nabawi",
+    "description": "This is literally the most Blessed place in the entire cosmos bro.",
+    "type": "poi",
+    "date": "2025-10-12",
+    "location": "Al Haram, Madinah 42311, Saudi Arabia",
+    "category": "",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "sharedWith": [],
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdBy": "Bismillah",
+    "createdAt": "2025-10-11T09:38:04.662592"
+  },
+  {
+    "_id": "1f1356ac-7b7c-4f38-b43b-67032f77d688",
+    "title": "Masjid An-Nabawi",
+    "description": "This is literally the most Blessed place in the entire cosmos bro.",
+    "type": "poi",
+    "date": "2025-10-10",
+    "location": "Al Haram, Madinah 42311, Saudi Arabia",
+    "category": "",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "sharedWith": [
+      "6951d2c7-b691-4e8e-9801-95c7045a36a5"
+    ],
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdBy": "Bismillah",
+    "createdAt": "2025-10-11T09:38:41.650970"
+  },
+  {
+    "_id": "8fb1ac4a-ba62-4df2-b0e9-c6b88140060a",
+    "title": "Ellenor",
+    "description": "CODE WITH VIBES BROOOOOO",
+    "type": "poi",
+    "date": "2025-10-19",
+    "location": "",
+    "category": "VIBE CODING",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "sharedWith": [
+      "me4gpkc7bufq9lu9dx6"
+    ],
+    "userId": "6951d2c7-b691-4e8e-9801-95c7045a36a5",
+    "createdBy": "mansoor",
+    "createdAt": "2025-10-11T09:40:27.100947"
+  },
+  {
+    "_id": "aa57cc6f-15f7-4130-9465-67a58e1e53a3",
+    "title": "Masjid An-Nabawi",
+    "description": "This is literally the most Blessed place in the entire cosmos bro.",
+    "type": "poi",
+    "date": "2025-10-12",
+    "location": "Al Haram, Madinah 42311, Saudi Arabia",
+    "category": "",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "sharedWith": [
+      "6951d2c7-b691-4e8e-9801-95c7045a36a5"
+    ],
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdBy": "Bismillah",
+    "createdAt": "2025-10-11T09:51:21.827042"
   }
 ]

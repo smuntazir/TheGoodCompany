@@ -8,7 +8,7 @@
   },
   {
     "id": "me4gxbmbtfxb3kmi62",
-    "username": "Al-ḥamdu lillāh",
+    "username": "Al-\u1e25amdu lill\u0101h",
     "email": "madeanapp@work.com",
     "password": "$2a$10$z266zl.LxOfsbxS.ek47k.tWj0MDGoPGP3wGW3mfynxkhxm3p2uh2",
     "createdAt": "2025-08-09T16:27:36.083Z"
@@ -26,5 +26,12 @@
     "email": "whateve@whatever.com",
     "password": "$2a$10$nnDK3fKN8mt2R4vGhcdr6uCS/8uaU2ZpZHTw3/WpZ.tcR6JOLEiMe",
     "createdAt": "2025-08-09T18:37:12.751Z"
+  },
+  {
+    "id": "6951d2c7-b691-4e8e-9801-95c7045a36a5",
+    "username": "mansoor",
+    "email": "mansoor@musawwar.com",
+    "password": "$2b$12$vbO3qw0yWcMQ.OLgPo2KvuzaBn2nAHz.8lngq1n9JR5j8gL3dfng2",
+    "createdAt": "2025-10-11T09:37:29.704585"
   }
 ]

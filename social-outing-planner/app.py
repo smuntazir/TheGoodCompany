@@ -13,7 +13,8 @@ CORS(app)
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('JWT_SECRET', 'your-secret-key')
-PORT = int(os.environ.get('PORT', 5001))
+PORT = int(os.environ.get('PORT', 8080))
+DEBUG = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
 
 # File paths
 DATA_DIR = 'data'
@@ -353,13 +354,30 @@ def delete_event(current_user, event_id):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_react_app(path):
-    if path != "" and os.path.exists(os.path.join('client/build', path)):
-        return send_from_directory('client/build', path)
+    build_folder = 'client/build'
+    
+    # Check if build folder exists
+    if not os.path.exists(build_folder):
+        return jsonify({
+            'error': 'Frontend not built',
+            'message': 'Please run "cd client && npm run build" to build the frontend first'
+        }), 500
+    
+    if path != "" and os.path.exists(os.path.join(build_folder, path)):
+        return send_from_directory(build_folder, path)
     else:
-        return send_from_directory('client/build', 'index.html')
+        index_path = os.path.join(build_folder, 'index.html')
+        if os.path.exists(index_path):
+            return send_from_directory(build_folder, 'index.html')
+        else:
+            return jsonify({
+                'error': 'Frontend not found',
+                'message': 'index.html not found in build folder'
+            }), 500
 
 if __name__ == '__main__':
     initialize_storage()
     print(f'Server running on port {PORT}')
     print('Using local file-based storage')
-    app.run(host='0.0.0.0', port=PORT, debug=True)
+    print(f'Debug mode: {DEBUG}')
+    app.run(host='0.0.0.0', port=PORT, debug=DEBUG)
