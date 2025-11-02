@@ -25,5 +25,14 @@
     "duration": 35,
     "userId": "meewotk69ajtuywy9lf",
     "createdAt": "2025-08-16T23:51:16.615Z"
+  },
+  {
+    "_id": "294a076b-4f31-4198-88e4-5de432e37b0a",
+    "name": "Photo",
+    "description": "",
+    "category": "",
+    "duration": null,
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-11-02T11:50:24.028677"
   }
 ]

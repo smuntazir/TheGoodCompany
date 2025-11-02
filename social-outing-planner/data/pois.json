@@ -61,5 +61,14 @@
     "location": "",
     "userId": "6951d2c7-b691-4e8e-9801-95c7045a36a5",
     "createdAt": "2025-10-11T09:40:11.853610"
+  },
+  {
+    "_id": "b5d2456f-f869-45f9-91a6-581e540af93c",
+    "name": "Work",
+    "description": "",
+    "category": "",
+    "location": "",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdAt": "2025-11-02T11:50:29.672191"
   }
 ]

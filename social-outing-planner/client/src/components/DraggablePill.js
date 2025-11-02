@@ -136,18 +136,19 @@ const DraggablePill = ({ item, type, onDelete }) => {
 
   const handleDragStart = (e) => {
     // Store the item data for the drop handler
-    e.dataTransfer.setData('application/json', JSON.stringify({
+    const dragData = {
       item,
       type
-    }));
+    };
+    e.dataTransfer.setData('application/json', JSON.stringify(dragData));
     e.dataTransfer.effectAllowed = 'copy';
+    // Also store in global window for touch fallback
+    window.touchDragData = dragData;
   };
 
   const handleTouchStart = (e) => {
-    // For touch devices, store data in a way that can be accessed later
-    const dragData = JSON.stringify({ item, type });
-    e.dataTransfer?.setData('application/json', dragData);
-    e.dataTransfer?.setData('text/plain', dragData);
+    // Store drag data globally for touch events
+    window.touchDragData = { item, type };
   };
 
   return (

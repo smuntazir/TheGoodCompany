@@ -32,8 +32,9 @@ const Sidebar = styled.div`
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #e8e8e8;
-    max-height: ${props => props.$isOpen ? '50vh' : '0'};
-    overflow: hidden;
+    max-height: ${props => props.$isOpen ? '60vh' : '0'};
+    overflow-y: ${props => props.$isOpen ? 'auto' : 'hidden'};
+    overflow-x: hidden;
     transition: max-height 0.3s ease;
   }
 `;
@@ -458,13 +459,24 @@ const Dashboard = ({
     setDragOverDay(null);
     
     try {
-      let dragData;
+      let dragData = null;
+      
+      // Try to get data from dataTransfer (mouse/desktop)
       try {
         dragData = JSON.parse(e.dataTransfer.getData('application/json'));
       } catch {
-        // Fallback for touch events
-        dragData = JSON.parse(e.dataTransfer.getData('text/plain'));
+        // Fallback: check if we have touch drag data stored globally
+        if (window.touchDragData) {
+          dragData = window.touchDragData;
+          window.touchDragData = null; // Clear after use
+        }
       }
+      
+      if (!dragData) {
+        console.warn('No drag data found');
+        return;
+      }
+      
       const { item, type } = dragData;
       
       // Create a new event from the dropped item
