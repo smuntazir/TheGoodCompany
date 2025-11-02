@@ -22,6 +22,18 @@ const PillContainer = styled.div`
   &:active {
     cursor: grabbing;
   }
+  
+  @media (max-width: 768px) {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+  }
 `;
 
 const PillHeader = styled.div`
@@ -38,6 +50,16 @@ const PillTitle = styled.div`
   font-weight: 600;
   color: #000000;
   font-size: 14px;
+  
+  @media (max-width: 768px) {
+    font-size: 13px;
+    gap: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 12px;
+    gap: 6px;
+  }
 `;
 
 const DeleteButton = styled.button`
@@ -53,6 +75,10 @@ const DeleteButton = styled.button`
     background: #f8f8f8;
     color: #666666;
   }
+  
+  @media (max-width: 480px) {
+    padding: 2px;
+  }
 `;
 
 const PillDescription = styled.div`
@@ -61,6 +87,16 @@ const PillDescription = styled.div`
   margin-top: 8px;
   opacity: 0.8;
   line-height: 1.4;
+  
+  @media (max-width: 768px) {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 10px;
+    margin-top: 4px;
+  }
 `;
 
 const PillMeta = styled.div`
@@ -71,6 +107,19 @@ const PillMeta = styled.div`
   font-size: 11px;
   color: #888888;
   opacity: 0.8;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    font-size: 10px;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 9px;
+    gap: 6px;
+    margin-top: 4px;
+  }
 `;
 
 const MetaItem = styled.div`
@@ -94,11 +143,19 @@ const DraggablePill = ({ item, type, onDelete }) => {
     e.dataTransfer.effectAllowed = 'copy';
   };
 
+  const handleTouchStart = (e) => {
+    // For touch devices, store data in a way that can be accessed later
+    const dragData = JSON.stringify({ item, type });
+    e.dataTransfer?.setData('application/json', dragData);
+    e.dataTransfer?.setData('text/plain', dragData);
+  };
+
   return (
     <PillContainer 
       type={type}
       draggable={true}
       onDragStart={handleDragStart}
+      onTouchStart={handleTouchStart}
     >
       <PillHeader>
         <PillTitle type={type}>

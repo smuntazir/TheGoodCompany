@@ -14,6 +14,10 @@ const DashboardContainer = styled.div`
   height: 100vh;
   background: #fafafa;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Sidebar = styled.div`
@@ -23,6 +27,37 @@ const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e8e8e8;
+    max-height: ${props => props.$isOpen ? '50vh' : '0'};
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+`;
+
+const SidebarToggle = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &:hover {
+    background-color: #f8f8f8;
+    color: #000000;
+  }
 `;
 
 const Header = styled.div`
@@ -31,6 +66,14 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    padding: 20px 16px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 16px 12px;
+  }
 `;
 
 const Logo = styled.h1`
@@ -39,6 +82,14 @@ const Logo = styled.h1`
   font-weight: 600;
   margin: 0;
   letter-spacing: -0.02em;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const LogoutButton = styled.button`
@@ -59,6 +110,14 @@ const LogoutButton = styled.button`
 const Section = styled.div`
   padding: 24px;
   border-bottom: 1px solid #f0f0f0;
+  
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 12px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -70,6 +129,18 @@ const SectionTitle = styled.h2`
   gap: 12px;
   font-weight: 600;
   letter-spacing: -0.01em;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
 `;
 
 const AddButton = styled.button`
@@ -91,6 +162,19 @@ const AddButton = styled.button`
     background: #333333;
     transform: translateY(-1px);
   }
+  
+  @media (max-width: 768px) {
+    padding: 10px 16px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    gap: 6px;
+  }
 `;
 
 const ListContainer = styled.div`
@@ -99,12 +183,31 @@ const ListContainer = styled.div`
   border: 1px dashed #e0e0e0;
   border-radius: 12px;
   background: #fafafa;
+  
+  @media (max-width: 768px) {
+    min-height: 100px;
+    padding: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 80px;
+    padding: 8px;
+  }
 `;
 
 const MainContent = styled.div`
   flex: 1;
   padding: 32px;
   overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    padding: 16px;
+    flex: 1;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 12px;
+  }
 `;
 
 const CalendarContainer = styled.div`
@@ -114,6 +217,16 @@ const CalendarContainer = styled.div`
   border: 1px solid #f0f0f0;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 12px;
+    border-radius: 8px;
+  }
 `;
 
 const CalendarHeader = styled.div`
@@ -132,6 +245,16 @@ const CalendarTitle = styled.h1`
   align-items: center;
   gap: 16px;
   letter-spacing: -0.02em;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    gap: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.25rem;
+    gap: 8px;
+  }
 `;
 
 const NavButton = styled.button`
@@ -168,6 +291,14 @@ const MonthGrid = styled.div`
   border: 1px solid #f0f0f0;
   border-radius: 12px;
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    margin-top: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: 12px;
+  }
 `;
 
 const DayCell = styled.div`
@@ -192,6 +323,16 @@ const DayCell = styled.div`
     background: #f0f0f0;
     transform: scale(1.01);
   }
+  
+  @media (max-width: 768px) {
+    min-height: 100px;
+    padding: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 80px;
+    padding: 6px;
+  }
 `;
 
 const DayNumber = styled.div`
@@ -199,6 +340,11 @@ const DayNumber = styled.div`
   color: ${props => props.$isToday ? '#000000' : '#333333'};
   margin-bottom: 8px;
   font-size: 14px;
+  
+  @media (max-width: 480px) {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
 `;
 
 const EventsContainer = styled.div`
@@ -224,6 +370,12 @@ const EventPill = styled.div`
   
   &:hover {
     background: ${props => props.$isShared ? '#d6eaf8' : (props.type === 'poi' ? '#e8e8e8' : '#f0f0f0')};
+  }
+  
+  @media (max-width: 480px) {
+    padding: 4px 8px;
+    font-size: 9px;
+    gap: 2px;
   }
 `;
 
@@ -270,6 +422,7 @@ const Dashboard = ({
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [pendingEvent, setPendingEvent] = useState(null);
   const [dragOverDay, setDragOverDay] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(currentDate);
@@ -305,7 +458,13 @@ const Dashboard = ({
     setDragOverDay(null);
     
     try {
-      const dragData = JSON.parse(e.dataTransfer.getData('application/json'));
+      let dragData;
+      try {
+        dragData = JSON.parse(e.dataTransfer.getData('application/json'));
+      } catch {
+        // Fallback for touch events
+        dragData = JSON.parse(e.dataTransfer.getData('text/plain'));
+      }
       const { item, type } = dragData;
       
       // Create a new event from the dropped item
@@ -410,7 +569,7 @@ const Dashboard = ({
 
   return (
     <DashboardContainer>
-      <Sidebar>
+      <Sidebar $isOpen={sidebarOpen}>
         <Header>
           <Logo>Good Company</Logo>
           <LogoutButton onClick={onLogout}>
@@ -464,6 +623,9 @@ const Dashboard = ({
       </Sidebar>
 
       <MainContent>
+        <SidebarToggle onClick={() => setSidebarOpen(!sidebarOpen)}>
+          {sidebarOpen ? '✕ Close' : '☰ Menu'}
+        </SidebarToggle>
         <CalendarContainer>
           <CalendarHeader>
             <CalendarTitle>

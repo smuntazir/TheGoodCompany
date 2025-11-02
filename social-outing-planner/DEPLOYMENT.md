@@ -71,17 +71,29 @@ Make sure these environment variables are set in your Digital Ocean app:
 
 Before deploying, you can test the production build locally:
 
-1. Build the frontend:
+1. **Set up Python virtual environment (if not already done):**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. **Install Python dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Build the frontend:**
    ```bash
    cd client && npm run build && cd ..
    ```
 
-2. Run the Flask server:
+4. **Run the Flask server:**
    ```bash
+   # Make sure virtual environment is activated
    python app.py
    ```
 
-3. Visit http://localhost:8080 - you should see the app, not a 404
+5. Visit http://localhost:8080 - you should see the app, not a 404
 
 ## Troubleshooting
 
