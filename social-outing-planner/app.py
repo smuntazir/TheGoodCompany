@@ -7,6 +7,7 @@ import os
 from datetime import datetime, timedelta
 from functools import wraps
 import uuid
+from llm_provider import get_llm_provider
 
 # Configure Flask to serve React build files
 app = Flask(__name__, 
@@ -352,6 +353,60 @@ def delete_event(current_user, event_id):
         return jsonify({'message': 'Event deleted successfully'})
     except Exception as error:
         return jsonify({'error': str(error)}), 500
+
+# AI Chat Route
+@app.route('/api/chat', methods=['POST'])
+@token_required
+def chat_with_ai(current_user):
+    """Chat with AI assistant for brainstorming POIs and AOIs"""
+    try:
+        data = request.get_json()
+        messages = data.get('messages', [])
+        
+        if not messages:
+            return jsonify({'error': 'Messages array is required'}), 400
+        
+        # Get user's current data for context
+        pois = read_json_file(POIS_FILE)
+        aois = read_json_file(AOIS_FILE)
+        events = read_json_file(EVENTS_FILE)
+        
+        user_pois = [poi for poi in pois if poi.get('userId') == current_user['userId']]
+        user_aois = [aoi for aoi in aois if aoi.get('userId') == current_user['userId']]
+        user_events = [
+            event for event in events 
+            if event.get('userId') == current_user['userId'] or 
+            current_user['userId'] in event.get('sharedWith', [])
+        ]
+        
+        context = {
+            'pois': user_pois,
+            'aois': user_aois,
+            'events': user_events
+        }
+        
+        # Get LLM provider and chat
+        try:
+            provider = get_llm_provider()
+            result = provider.chat(messages, context)
+            
+            return jsonify({
+                'response': result.get('response', ''),
+                'extracted_items': result.get('extracted_items', [])
+            })
+        except ValueError as ve:
+            # Provider not configured
+            return jsonify({
+                'error': str(ve),
+                'hint': 'Please configure LLM_PROVIDER and LLM_API_KEY environment variables'
+            }), 503
+        except Exception as e:
+            return jsonify({
+                'error': f'AI service error: {str(e)}'
+            }), 500
+            
+    except Exception as error:
+        return jsonify({'error': str(error)}), 400
 
 # Serve React app for client-side routing
 @app.route('/', defaults={'path': ''})

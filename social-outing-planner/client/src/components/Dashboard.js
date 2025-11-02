@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { LogOut, Plus, MapPin, Activity, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, Users } from 'lucide-react';
+import { LogOut, Plus, MapPin, Activity, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, Users, Sparkles } from 'lucide-react';
 
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, addMonths, subMonths, startOfWeek, endOfWeek } from 'date-fns';
 
@@ -8,6 +8,7 @@ import POIForm from './POIForm';
 import AOIForm from './AOIForm';
 import DraggablePill from './DraggablePill';
 import TimePickerModal from './TimePickerModal';
+import AIChat from './AIChat';
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -631,6 +632,14 @@ const Dashboard = ({
               />
             ))}
           </ListContainer>
+        </Section>
+
+        <Section>
+          <SectionTitle>
+            <Sparkles size={20} />
+            AI Brainstorming
+          </SectionTitle>
+          <AIChat onAddPOI={onAddPOI} onAddAOI={onAddAOI} />
         </Section>
       </Sidebar>
 
