@@ -287,6 +287,8 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
     try {
       const response = await axios.post('/api/chat', {
         messages: [...messages, userMessage]
+      }, {
+        timeout: 60000 // 60 seconds timeout
       });
 
       const assistantMessage = {
@@ -305,6 +307,12 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
 
       if (error.response?.status === 503) {
         setConfigError(error.response.data);
+      } else if (error.code === 'ECONNABORTED' || error.response?.status === 504) {
+        const errorMessage = {
+          role: 'assistant',
+          content: 'The server took too long to respond. Please try again with a shorter prompt.'
+        };
+        setMessages(prev => [...prev, errorMessage]);
       } else {
         const errorMessage = {
           role: 'assistant',
