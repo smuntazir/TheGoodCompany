@@ -409,6 +409,11 @@ def chat_with_ai(current_user):
         return jsonify({'error': str(error)}), 400
 
 # Serve React app for client-side routing
+@app.errorhandler(404)
+def not_found(e):
+    return send_from_directory(app.static_folder, 'index.html')
+
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_react_app(path):
