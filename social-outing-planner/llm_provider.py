@@ -26,7 +26,7 @@ class GeminiProvider(LLMProvider):
         try:
             import google.generativeai as genai
             genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel('gemini-pro')
+            self.model = genai.GenerativeModel('gemini-flash-latest')
         except Exception as e:
             raise Exception(f"Failed to initialize Gemini: {e}")
     
