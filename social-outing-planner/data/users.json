@@ -33,5 +33,12 @@
     "email": "mansoor@musawwar.com",
     "password": "$2b$12$vbO3qw0yWcMQ.OLgPo2KvuzaBn2nAHz.8lngq1n9JR5j8gL3dfng2",
     "createdAt": "2025-10-11T09:37:29.704585"
+  },
+  {
+    "id": "92727ce4-73fb-424e-aa60-0d0acd0dcc9c",
+    "username": "tester",
+    "email": "tester@test.com",
+    "password": "$2b$12$udTwl9WMeVatLLab6zKhuuHQFxEsEjva3hWY6SLatKyB4No6SIKlG",
+    "createdAt": "2025-12-13T10:15:58.015109"
   }
 ]

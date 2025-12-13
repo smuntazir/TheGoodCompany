@@ -53,22 +53,26 @@ const MessagesContainer = styled.div`
   }
 `;
 
+const slideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Message = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  animation: slideIn 0.2s ease-out;
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  animation: ${slideIn} 0.2s ease-out;
+`;
+
+const SpinLoader = styled(Loader)`
+  animation: ${spin} 1s linear infinite;
 `;
 
 const Avatar = styled.div`
@@ -271,7 +275,7 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!inputValue.trim() || isLoading) return;
 
     const userMessage = { role: 'user', content: inputValue.trim() };
@@ -285,11 +289,11 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
         messages: [...messages, userMessage]
       });
 
-      const assistantMessage = { 
-        role: 'assistant', 
-        content: response.data.response 
+      const assistantMessage = {
+        role: 'assistant',
+        content: response.data.response
       };
-      
+
       setMessages(prev => [...prev, assistantMessage]);
 
       // Handle extracted items for preview
@@ -298,7 +302,7 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
       }
     } catch (error) {
       console.error('Chat error:', error);
-      
+
       if (error.response?.status === 503) {
         setConfigError(error.response.data);
       } else {
@@ -320,10 +324,10 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
       } else {
         await onAddAOI(item);
       }
-      
+
       // Remove this item from pending
       setPendingItems(prev => prev.filter((_, i) => i !== index));
-      
+
       // Add confirmation message
       setMessages(prev => [...prev, {
         role: 'assistant',
@@ -346,7 +350,7 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
           {configError.hint}
         </ConfigHint>
       ) : null}
-      
+
       <MessagesContainer>
         {messages.length === 0 && !configError ? (
           <EmptyState>
@@ -368,7 +372,7 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
                 </MessageBubble>
               </Message>
             ))}
-            
+
             {pendingItems.map((item, index) => (
               <ItemPreview key={index}>
                 <strong>{item.type === 'poi' ? '📍 Place' : '🎯 Activity'} Suggestion:</strong>
@@ -377,16 +381,16 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
                 {item.description && <div>{item.description}</div>}
                 {item.duration && <div>⏱️ {item.duration}</div>}
                 {item.category && <div>🏷️ {item.category}</div>}
-                
+
                 <PreviewActions>
-                  <PreviewButton 
-                    className="approve" 
+                  <PreviewButton
+                    className="approve"
                     onClick={() => handleApproveItem(item, index)}
                   >
                     ✓ Add to My List
                   </PreviewButton>
-                  <PreviewButton 
-                    className="reject" 
+                  <PreviewButton
+                    className="reject"
                     onClick={() => handleRejectItem(index)}
                   >
                     ✕ Skip
@@ -394,16 +398,16 @@ const AIChat = ({ onAddPOI, onAddAOI }) => {
                 </PreviewActions>
               </ItemPreview>
             ))}
-            
+
             {isLoading && (
               <Message>
                 <Avatar>
-                  <Loader size={16} style={{ animation: `${spin} 1s linear infinite` }} />
+                  <SpinLoader size={16} />
                 </Avatar>
                 <MessageBubble>Thinking...</MessageBubble>
               </Message>
             )}
-            
+
             <div ref={messagesEndRef} />
           </>
         )}
