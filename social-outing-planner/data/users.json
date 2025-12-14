@@ -40,5 +40,12 @@
     "email": "tester@test.com",
     "password": "$2b$12$udTwl9WMeVatLLab6zKhuuHQFxEsEjva3hWY6SLatKyB4No6SIKlG",
     "createdAt": "2025-12-13T10:15:58.015109"
+  },
+  {
+    "id": "22c14114-0880-43d8-8772-f8d859834969",
+    "username": "perf_test_1765654104",
+    "email": "perf_test_1765654104@example.com",
+    "password": "$2b$12$M9G4CLpowndxRbOcOqIry.kXfc4cVuc5SrSBpeqtfF6GtfWjbf62a",
+    "createdAt": "2025-12-13T11:28:25.369119"
   }
 ]

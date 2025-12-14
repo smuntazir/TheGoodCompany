@@ -114,7 +114,7 @@ To enable the AI brainstorming feature, you need to configure an LLM provider:
 
 3. **Restart the backend server**
 
-For detailed setup instructions, see [AI_SETUP.md](./AI_SETUP.md)
+For detailed setup instructions, see [docs/ai_setup.md](docs/ai_setup.md)
 
 ## Usage Guide 📱
 
@@ -129,16 +129,22 @@ For detailed setup instructions, see [AI_SETUP.md](./AI_SETUP.md)
 
 ```
 social-outing-planner/
-├── app.py                # Python Flask backend server
-├── llm_provider.py       # AI provider abstraction layer
+├── app.py                # Python Flask backend (entry point)
 ├── requirements.txt      # Python dependencies
-├── AI_SETUP.md          # AI configuration guide
-├── venv/                # Python virtual environment
-├── data/                # JSON data files
-│   ├── users.json       # User data
-│   ├── pois.json        # Places of Interest
-│   ├── aois.json        # Activities of Interest
-│   └── events.json      # Calendar events
+├── docs/                 # Documentation
+│   ├── ai_setup.md       # AI configuration guide
+│   ├── deployment.md     # Deployment instructions
+│   └── setup.md          # General setup guide
+├── server/               # Backend Source Code
+│   ├── config.py         # Configuration
+│   ├── models.py         # Data models
+│   ├── storage.py        # Data access layer
+│   └── routes/           # API Routes
+├── data/                 # JSON data files
+│   ├── users.json
+│   ├── pois.json
+│   ├── aois.json
+│   └── events.json
 ├── client/              # React frontend
 │   ├── package.json     # Frontend dependencies
 │   ├── public/          # Static assets
