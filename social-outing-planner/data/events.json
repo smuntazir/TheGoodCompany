@@ -242,5 +242,37 @@
     "userId": "me4gpkc7bufq9lu9dx6",
     "createdBy": "Bismillah",
     "createdAt": "2025-10-11T09:51:21.827042"
+  },
+  {
+    "_id": "c2e192d8-c7de-4625-a348-c082c1abf140",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdBy": "Bismillah",
+    "title": "Masjid An-Nabawi",
+    "start": "",
+    "end": "",
+    "allDay": false,
+    "resource": null,
+    "sharedWith": [],
+    "createdAt": "2026-01-24T11:35:29.947271"
+  },
+  {
+    "_id": "f73b4bb9-b0e0-4cae-8197-f441fc71d719",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "createdBy": "Bismillah",
+    "title": "Wildlife Sketching Session",
+    "date": "2026-01-13",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "description": "Drawing or painting the surrounding flora and fauna.",
+    "type": "aoi",
+    "location": null,
+    "duration": "1 hour",
+    "category": "culture",
+    "start": "",
+    "end": "",
+    "allDay": false,
+    "resource": null,
+    "sharedWith": [],
+    "createdAt": "2026-01-24T12:30:58.054485"
   }
 ]

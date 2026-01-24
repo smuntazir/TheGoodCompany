@@ -47,5 +47,19 @@
     "email": "perf_test_1765654104@example.com",
     "password": "$2b$12$M9G4CLpowndxRbOcOqIry.kXfc4cVuc5SrSBpeqtfF6GtfWjbf62a",
     "createdAt": "2025-12-13T11:28:25.369119"
+  },
+  {
+    "id": "9ba1451b-8baa-4d6a-b1b3-70036b18424b",
+    "username": "fresh",
+    "email": "fresh@fresh.com",
+    "password": "$2b$12$qMoRxcu2ab24JB2QroTFAerMLjmoKuPvEaUe.WkLQBKTCoNs7eMCS",
+    "createdAt": "2026-01-24T10:55:32.191911"
+  },
+  {
+    "id": "f6c72f27-8a7a-4df5-8c05-106078937742",
+    "username": "Help",
+    "email": "help@google.com",
+    "password": "$2b$12$WQ9Lr4H6D1mVeJlPGh5pb.AE4nIpdgFacl1BT8rU9tcN7gy5PL6XC",
+    "createdAt": "2026-01-24T11:00:21.119637"
   }
 ]

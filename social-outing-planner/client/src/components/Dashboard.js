@@ -405,18 +405,18 @@ const SharedIndicator = styled.span`
   color: #0066cc;
 `;
 
-const Dashboard = ({ 
-  user, 
-  pois, 
-  aois, 
-  events, 
-  onAddPOI, 
-  onAddAOI, 
+const Dashboard = ({
+  user,
+  pois,
+  aois,
+  events,
+  onAddPOI,
+  onAddAOI,
   onAddEvent,
-  onDeletePOI, 
-  onDeleteAOI, 
-  onDeleteEvent, 
-  onLogout 
+  onDeletePOI,
+  onDeleteAOI,
+  onDeleteEvent,
+  onLogout
 }) => {
   const [showPOIForm, setShowPOIForm] = useState(false);
   const [showAOIForm, setShowAOIForm] = useState(false);
@@ -434,11 +434,15 @@ const Dashboard = ({
 
   const getEventsForDay = (day) => {
     return events.filter(event => {
-      // Parse event date as local date to avoid timezone issues
-      // Split 'yyyy-MM-dd' and create local Date object
-      const [year, month, dayNum] = event.date.split('-').map(Number);
+      if (!event.date) return false;
+
+      // Handle both ISO strings and YYYY-MM-DD strings
+      const eventDateStr = event.date.includes('T') ? event.date.split('T')[0] : event.date;
+      const [year, month, dayNum] = eventDateStr.split('-').map(Number);
+
       const eventDate = new Date(year, month - 1, dayNum);
       const dayDate = new Date(day);
+
       return eventDate.toDateString() === dayDate.toDateString();
     });
   };
@@ -458,10 +462,10 @@ const Dashboard = ({
   const handleDrop = (e, day) => {
     e.preventDefault();
     setDragOverDay(null);
-    
+
     try {
       let dragData = null;
-      
+
       // Try to get data from dataTransfer (mouse/desktop)
       try {
         dragData = JSON.parse(e.dataTransfer.getData('application/json'));
@@ -472,14 +476,14 @@ const Dashboard = ({
           window.touchDragData = null; // Clear after use
         }
       }
-      
+
       if (!dragData) {
         console.warn('No drag data found');
         return;
       }
-      
+
       const { item, type } = dragData;
-      
+
       // Create a new event from the dropped item
       const newEvent = {
         title: item.name,
@@ -490,7 +494,7 @@ const Dashboard = ({
         duration: type === 'aoi' ? item.duration : undefined,
         category: item.category
       };
-      
+
       // Show time picker for the new event
       setPendingEvent(newEvent);
       setShowTimePicker(true);
@@ -599,7 +603,7 @@ const Dashboard = ({
             <Plus size={16} />
             Add Place
           </AddButton>
-          
+
           <ListContainer>
             {pois.map((poi, index) => (
               <DraggablePill
@@ -621,7 +625,7 @@ const Dashboard = ({
             <Plus size={16} />
             Add Activity
           </AddButton>
-          
+
           <ListContainer>
             {aois.map((aoi, index) => (
               <DraggablePill
@@ -662,7 +666,7 @@ const Dashboard = ({
               </NavButton>
             </NavControls>
           </CalendarHeader>
-          
+
           <MonthGrid>
             {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
               <div key={day} style={{ fontWeight: 'bold', textAlign: 'center', padding: '10px', color: '#666' }}>

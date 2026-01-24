@@ -1,23 +1,5 @@
 [
   {
-    "_id": "me4gr3lwvnpyewx8pqc",
-    "name": "Masjid An-Nabawi",
-    "description": "This is literally the most Blessed place in the entire cosmos bro.",
-    "category": "",
-    "location": "Al Haram, Madinah 42311, Saudi Arabia",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:22:45.764Z"
-  },
-  {
-    "_id": "me4gttppho0unmau4nk",
-    "name": "Makkah Al-Mukarramah",
-    "description": "",
-    "category": "",
-    "location": "",
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:24:52.909Z"
-  },
-  {
     "_id": "me4gxg5mozydgtqm3o",
     "name": "Home",
     "description": "",
@@ -63,12 +45,66 @@
     "createdAt": "2025-10-11T09:40:11.853610"
   },
   {
-    "_id": "b5d2456f-f869-45f9-91a6-581e540af93c",
-    "name": "Work",
+    "_id": "53c7b5ce-0457-493f-a84f-02ac7beaa8ae",
+    "userId": "9ba1451b-8baa-4d6a-b1b3-70036b18424b",
+    "name": "Lookout Peak Trailhead",
+    "location": "(Local Mountain Range)",
+    "description": "Starting point for scenic hikes with panoramic views",
+    "category": "nature",
+    "createdAt": "2026-01-24T10:56:22.799389"
+  },
+  {
+    "_id": "d4f6028a-2e27-4923-95a4-560813edcbf2",
+    "userId": "9ba1451b-8baa-4d6a-b1b3-70036b18424b",
+    "name": "City Botanical Gardens",
+    "location": "(Nearest major city)",
+    "description": "Explore curated flora collections and specialized greenhouses",
+    "category": "nature",
+    "createdAt": "2026-01-24T10:56:23.738393"
+  },
+  {
+    "_id": "a93e36d3-ab94-4f1e-834d-4a3a53d82d2f",
+    "userId": "9ba1451b-8baa-4d6a-b1b3-70036b18424b",
+    "name": "Redwood National Park",
+    "location": "California Coast",
+    "description": "Home to ancient, towering trees and coastal trails",
+    "category": "nature",
+    "createdAt": "2026-01-24T10:56:24.578744"
+  },
+  {
+    "_id": "acddcd87-9c4c-4182-b7b0-ecbba18abc77",
+    "userId": "f6c72f27-8a7a-4df5-8c05-106078937742",
+    "name": "MOKA",
+    "location": "Hello",
     "description": "",
-    "category": "",
-    "location": "",
+    "category": "VIBE CODING",
+    "createdAt": "2026-01-24T11:00:31.686897"
+  },
+  {
+    "_id": "7212f6fd-3275-4784-8fc5-08162e72358a",
     "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-11-02T11:50:29.672191"
+    "name": "Redwood Creek Park",
+    "location": "West End",
+    "description": "Expansive green space with designated picnic areas and shaded groves.",
+    "category": "nature",
+    "createdAt": "2026-01-24T12:35:17.490545"
+  },
+  {
+    "_id": "94cb36cc-6c5d-44cb-baba-fdbc6700fdc2",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "name": "Highland Overlook Trail",
+    "location": "Mountain Range",
+    "description": "A high-altitude spot offering panoramic views, accessible via a short hike.",
+    "category": "nature",
+    "createdAt": "2026-01-24T12:35:18.611177"
+  },
+  {
+    "_id": "c438a13e-21d1-4207-abc0-22ff53a23550",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "name": "Oakhaven Botanical Gardens",
+    "location": "Downtown Edge",
+    "description": "Manicured grounds featuring quiet ponds and rare floral species.",
+    "category": "nature",
+    "createdAt": "2026-01-24T12:35:19.644824"
   }
 ]

@@ -45,4 +45,4 @@ if __name__ == '__main__':
     print(f'Server running on port {Config.PORT}')
     print('Using local file-based storage')
     print(f'Debug mode: {Config.DEBUG}')
-    app.run(host='0.0.0.0', port=Config.PORT, debug=Config.DEBUG)
+    app.run(host='127.0.0.1', port=Config.PORT, debug=Config.DEBUG)

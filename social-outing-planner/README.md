@@ -7,208 +7,105 @@ A modern social webapp for planning outings with friends. Create lists of Places
 - **🤖 AI Brainstorming**: Chat with AI (Gemini/GPT/Claude) to discover new places and activities
 - **📍 Places of Interest (POIs)**: Add places you want to visit with descriptions, locations, and categories
 - **🎯 Activities of Interest (AOIs)**: Add activities you want to do with duration and category info
-- **🎯 Drag & Drop Planning**: Drag POIs and AOIs from your lists directly onto calendar dates
-- **📅 Interactive Calendar**: Visual monthly calendar with scheduled events
-- **🔐 User Authentication**: Secure login and registration system
-- **✨ Modern UI**: Beautiful, responsive design with smooth animations
-- **⚡ Real-time Updates**: Instant feedback with toast notifications
-
-## Tech Stack 🛠️
-
-**Frontend:**
-- React 18 with functional components and hooks
-- Styled Components for modern CSS-in-JS styling
-- React Beautiful DnD for drag-and-drop functionality
-- React Calendar for date selection
-- React Router for navigation
-- Axios for API calls
-- React Toastify for notifications
-- Lucide React for icons
-
-**Backend:**
-- Python Flask web framework
-- File-based JSON storage (users, POIs, AOIs, events)
-- JWT authentication
-- bcrypt for password hashing
-- CORS enabled for cross-origin requests
-
-**AI Integration:**
-- Google Gemini (gemini-pro)
-- OpenAI GPT (gpt-3.5-turbo)
-- Anthropic Claude (claude-3-sonnet)
-- Flexible provider abstraction layer
-
-## Setup Instructions 🚀
-
-### Prerequisites
-- Python 3.7 or higher
-- Node.js (v14 or higher) for the React frontend
-- npm or yarn
-
-### Installation
-
-1. **Clone and navigate to the project:**
-   ```bash
-   cd social-outing-planner
-   ```
-
-2. **Set up Python virtual environment:**
-   ```bash
-   python -m venv venv
-   ```
-
-3. **Activate virtual environment:**
-   ```bash
-   # Windows
-   venv\Scripts\activate
-   
-   # macOS/Linux
-   source venv/bin/activate
-   ```
-
-4. **Install Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Install frontend dependencies:**
-   ```bash
-   cd client
-   npm install
-   cd ..
-   ```
-
-6. **Start the development servers:**
-   
-   **Backend (Python Flask):**
-   ```bash
-   # Make sure virtual environment is activated
-   python app.py
-   ```
-   
-   **Frontend (React):**
-   ```bash
-   # In a new terminal
-   cd client
-   npm start
-   ```
-
-   This will start:
-   - Backend server on http://localhost:5001
-   - Frontend development server on http://localhost:3000
-
-### AI Brainstorming Setup (Optional) 🤖
-
-To enable the AI brainstorming feature, you need to configure an LLM provider:
-
-1. **Get an API key** from one of these providers:
-   - **Google Gemini** (Free): https://makersuite.google.com/app/apikey
-   - **OpenAI GPT** (Paid): https://platform.openai.com/api-keys
-   - **Anthropic Claude** (Paid): https://console.anthropic.com/
-
-2. **Set environment variables:**
-   ```bash
-   export LLM_PROVIDER=gemini  # Options: gemini, openai, gpt, claude, anthropic
-   export LLM_API_KEY=your-api-key-here
-   ```
-
-3. **Restart the backend server**
-
-For detailed setup instructions, see [docs/ai_setup.md](docs/ai_setup.md)
-
-## Usage Guide 📱
-
-1. **Register/Login**: Create an account or sign in
-2. **Brainstorm with AI** (if configured): Chat with the AI assistant to discover new ideas
-3. **Add POIs**: Click "Add Place" or approve AI suggestions for Places of Interest
-4. **Add AOIs**: Click "Add Activity" or approve AI suggestions for Activities of Interest
-5. **Plan Your Outing**: Drag POIs and AOIs from the sidebar onto calendar dates
-6. **Manage Events**: Click on scheduled events to remove them
-
-## Project Structure 📁
-
-```
-social-outing-planner/
-├── app.py                # Python Flask backend (entry point)
-├── requirements.txt      # Python dependencies
-├── docs/                 # Documentation
-│   ├── ai_setup.md       # AI configuration guide
-│   ├── deployment.md     # Deployment instructions
-│   └── setup.md          # General setup guide
-├── server/               # Backend Source Code
-│   ├── config.py         # Configuration
-│   ├── models.py         # Data models
-│   ├── storage.py        # Data access layer
-│   └── routes/           # API Routes
-├── data/                 # JSON data files
-│   ├── users.json
-│   ├── pois.json
-│   ├── aois.json
-│   └── events.json
-├── client/              # React frontend
-│   ├── package.json     # Frontend dependencies
-│   ├── public/          # Static assets
-│   └── src/
-│       ├── App.js       # Main app component
-│       ├── index.js     # React entry point
-│       └── components/  # React components
-│           ├── Login.js
-│           ├── Register.js
-│           ├── Dashboard.js
-│           ├── AIChat.js          # NEW: AI chat component
-│           ├── DraggablePill.js
-│           ├── POIForm.js
-│           └── AOIForm.js
-```
-
-## API Endpoints 🔌
-
-### Authentication
-- `POST /api/register` - Register new user
-- `POST /api/login` - User login
-
-### Places of Interest
-- `GET /api/pois` - Get user's POIs
-- `POST /api/pois` - Create new POI
-- `DELETE /api/pois/:id` - Delete POI
-
-### Activities of Interest
-- `GET /api/aois` - Get user's AOIs
-- `POST /api/aois` - Create new AOI
-- `DELETE /api/aois/:id` - Delete AOI
-
-### Calendar Events
-- `GET /api/events` - Get user's scheduled events
-- `POST /api/events` - Create new event
-- `DELETE /api/events/:id` - Delete event
-
-### AI Chat
-- `POST /api/chat` - Chat with AI assistant (requires LLM_PROVIDER and LLM_API_KEY configured)
-
-## Future Enhancements 🚀
-
-- ✅ ~~Activity recommendations based on preferences~~ (Implemented via AI Brainstorming)
-- Social features (friend system, shared outings)
-- Map integration for POI visualization
-- Weather integration for outdoor activities
-- Collaborative planning with multiple users
-- Mobile app version
-- Export to external calendars
-- Persistent chat history with database storage
-- Multi-language AI support
-
-## Contributing 🤝
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License 📄
-
-MIT License - feel free to use this project for your own purposes!
+- **📅 Drag & Drop Planning**: Drag POIs and AOIs from your lists directly onto calendar dates
+- **🔐 User Authentication**: Secure login and registration
+- **📱 Responsive Design**: Works beautifully on desktop and mobile
 
 ---
 
-**Happy Planning! 🎉** Start creating your perfect outings today!
+## 🚀 Quick Start (Development)
+
+We have simplified the development flow into a single script.
+
+1.  **Clone the repository**
+2.  **Run the development script**:
+    ```bash
+    ./dev.sh
+    ```
+    This script will automatically:
+    - Create and activate a Python virtual environment
+    - Install backend dependencies (`requirements.txt`)
+    - Install frontend dependencies
+    - Start the Flask Backend (Port 5001)
+    - Start the React Frontend (Port 3000)
+
+3.  **Open your browser**: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🌍 Production Deployment (Digital Ocean)
+
+This application is designed to be deployed on **Digital Ocean App Platform** (or Heroku).
+
+### 1. Prerequisites
+- A Digital Ocean account.
+- This repository connected to your Digital Ocean account.
+
+### 2. Configuration
+The application requires the following Environment Variables to be set in your App Platform dashboard:
+
+| Variable | Description | Default/Example |
+|----------|-------------|-----------------|
+| `JWT_SECRET` | Secret key for auth tokens | `your-secret-random-string` |
+| `LLM_PROVIDER` | AI Provider (Optional) | `gemini` (default), `openai`, `claude` |
+| `LLM_API_KEY` | API Key for the AI Provider | `your-api-key` |
+| `DATA_DIR` | **CRITICAL for Data Persistence** | `/app/data` (See below) |
+
+### 3. Data Persistence (CRITICAL) ⚠️
+
+By default, this application stores data in JSON files. On platforms like Digital Ocean App Platform, the filesystem is **ephemeral** (it is wiped every time you deploy or restart).
+
+**To prevent data loss, you MUST use a Persistent Volume:**
+
+1.  In Digital Ocean App Platform, go to your **component settings**.
+2.  Find **Storage** or **Volumes**.
+3.  Add a new volume.
+    - **Mount Path**: `/app/data` (or any path you prefer)
+4.  Add an Environment Variable:
+    - `DATA_DIR`: `/app/data` (Match the mount path above)
+
+This ensures your `users.json`, `events.json`, etc., are stored on the persistent volume and survive deployments.
+
+### 4. Build & Start Commands
+Digital Ocean should auto-detect the `Procfile`, but if you need to configure manually:
+- **Build Command**: `./build.sh`
+- **Run Command**: `gunicorn --worker-class gthread --threads 8 --timeout 120 app:app`
+
+---
+
+## 📂 Project Structure & Scripts
+
+### Key Files
+- `dev.sh`: **The Development Script**. Runs everything locally (Backend + Frontend).
+- `build.sh`: **The Production Build Script**. Installs all dependencies and builds the React app.
+- `app.py`: The entry point. Serves the API and static React files in production.
+- `Procfile`: Instructions for the PaaS (Digital Ocean/Heroku) on how to run the app.
+
+### Directory Structure
+```
+social-outing-planner/
+├── app.py                # Flask Application Entry Point
+├── build.sh              # Production Build Script
+├── dev.sh                # Local Development Script
+├── client/               # React Frontend
+│   ├── src/              # React Source Code
+│   └── build/            # Compiled Frontend (created on build)
+├── server/               # Backend Logic
+│   ├── routes/           # API Endpoints
+│   ├── storage.py        # JSON File Storage Handler
+│   └── config.py         # Configuration Management
+└── data/                 # Data Storage (Local) or Mount Point (Prod)
+```
+
+## 🛠 Tech Stack
+
+- **Frontend**: React 18, Styled Components, React Beautiful DnD
+- **Backend**: Python Flask
+- **Database**: JSON Files (managed via `storage.py`, compatible with Persistent Volumes)
+- **AI**: Integration with Gemini, OpenAI, or Claude via `llm_provider.py`
+
+## 🤝 Contributing
+
+1. Fork the repo.
+2. Run `./dev.sh` to start debugging.
+3. Submit a PR!

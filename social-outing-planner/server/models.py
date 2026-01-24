@@ -53,6 +53,14 @@ class Event(BaseModel):
     userId: str
     createdBy: str
     title: str = ""
+    date: str = ""
+    startTime: str = ""
+    endTime: str = ""
+    description: str = ""
+    type: str = ""
+    location: Optional[str] = None
+    duration: Optional[int] = None
+    category: str = ""
     start: str = ""
     end: str = ""
     allDay: bool = False
