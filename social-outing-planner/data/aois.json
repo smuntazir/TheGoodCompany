@@ -1,14 +1,5 @@
 [
   {
-    "_id": "me4gsj4eb5dgdfbnix7",
-    "name": "Prayer",
-    "description": "its literally a conversation with Allah. bro.",
-    "category": "spiritual",
-    "duration": 5,
-    "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-08-09T16:23:52.527Z"
-  },
-  {
     "_id": "me4gxlc0b3dlb71jfdf",
     "name": "Eating",
     "description": "",
@@ -27,12 +18,57 @@
     "createdAt": "2025-08-16T23:51:16.615Z"
   },
   {
-    "_id": "294a076b-4f31-4198-88e4-5de432e37b0a",
-    "name": "Photo",
-    "description": "",
-    "category": "",
-    "duration": null,
+    "_id": "a7380b1d-ef2d-4089-84e8-a6833b306062",
+    "userId": "9ba1451b-8baa-4d6a-b1b3-70036b18424b",
+    "name": "Moderate Day Hike",
+    "description": "A 4-mile trek covering varied terrain",
+    "duration": "2.5 hours",
+    "category": "sports",
+    "createdAt": "2026-01-24T10:56:19.403463"
+  },
+  {
+    "_id": "f2f18363-3db9-4316-bf9a-400a9e2a3c35",
+    "userId": "9ba1451b-8baa-4d6a-b1b3-70036b18424b",
+    "name": "Guided Kayak Tour",
+    "description": "Paddle down a slow-moving river or lake, focusing on riparian wildlife",
+    "duration": "3 hours",
+    "category": "nature",
+    "createdAt": "2026-01-24T10:56:20.902356"
+  },
+  {
+    "_id": "2734f047-4f08-44f5-8291-af17114e1f5f",
+    "userId": "9ba1451b-8baa-4d6a-b1b3-70036b18424b",
+    "name": "Nature Picnic & Reading",
+    "description": "Bring snacks and a blanket to enjoy a quiet, scenic spot",
+    "duration": "1.5 hours",
+    "category": "social",
+    "createdAt": "2026-01-24T10:56:21.967395"
+  },
+  {
+    "_id": "579485d9-a3eb-42b3-9190-f2453bd20225",
     "userId": "me4gpkc7bufq9lu9dx6",
-    "createdAt": "2025-11-02T11:50:24.028677"
+    "name": "Wildlife Sketching Session",
+    "description": "Drawing or painting the surrounding flora and fauna.",
+    "duration": "1 hour",
+    "category": "culture",
+    "createdAt": "2026-01-24T12:30:48.471518"
+  },
+  {
+    "_id": "2e92c5e4-ba8c-4624-83f1-dc0d4098ffef",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "name": "Gourmet Basket Preparation",
+    "description": "Preparing sandwiches, snacks, and drinks for the outing.",
+    "duration": "1.5 hours",
+    "category": "food",
+    "createdAt": "2026-01-24T12:35:20.710362"
+  },
+  {
+    "_id": "f760f655-7a97-4d83-bf29-31becafc57e4",
+    "userId": "me4gpkc7bufq9lu9dx6",
+    "name": "Outdoor Book Swap",
+    "description": "Bringing a book to trade with a friend while enjoying the fresh air.",
+    "duration": "2 hours",
+    "category": "social",
+    "createdAt": "2026-01-24T12:35:21.840823"
   }
 ]

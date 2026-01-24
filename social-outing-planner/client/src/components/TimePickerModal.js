@@ -218,8 +218,8 @@ const TimePickerModal = ({ event, onSave, onClose }) => {
   }, []);
 
   const handleUserToggle = (userId) => {
-    setSelectedUsers(prev => 
-      prev.includes(userId) 
+    setSelectedUsers(prev =>
+      prev.includes(userId)
         ? prev.filter(id => id !== userId)
         : [...prev, userId]
     );
@@ -236,15 +236,16 @@ const TimePickerModal = ({ event, onSave, onClose }) => {
   };
 
   const formatDate = (dateString) => {
+    if (!dateString) return 'Invalid Date';
     // Parse as local date to avoid timezone issues
     // Split 'yyyy-MM-dd' and create local Date object
     const [year, month, day] = dateString.split('-').map(Number);
     const date = new Date(year, month - 1, day);
-    return date.toLocaleDateString('en-US', { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     });
   };
 
