@@ -1,1 +1,6 @@
 /.DS_Store
+node_modules/
+social-outing-planner/client/node_modules/
+social-outing-planner/rust-server/target/
+**/node_modules/
+**/target/
