@@ -26,8 +26,14 @@ We have simplified the development flow into a single script.
     - Create and activate a Python virtual environment
     - Install backend dependencies (`requirements.txt`)
     - Install frontend dependencies
-    - Start the Flask Backend (Port 5001)
+    - Install Rust dependencies and start the Rust Server (Port 5000)
     - Start the React Frontend (Port 3000)
+
+    **Manual Rust Start**:
+    ```bash
+    cd rust-server
+    cargo run
+    ```
 
 3.  **Open your browser**: [http://localhost:3000](http://localhost:3000)
 
@@ -100,7 +106,7 @@ social-outing-planner/
 ## 🛠 Tech Stack
 
 - **Frontend**: React 18, Styled Components, React Beautiful DnD
-- **Backend**: Python Flask
+- **Backend**: Rust (Axum)
 - **Database**: JSON Files (managed via `storage.py`, compatible with Persistent Volumes)
 - **AI**: Integration with Gemini, OpenAI, or Claude via `llm_provider.py`
 

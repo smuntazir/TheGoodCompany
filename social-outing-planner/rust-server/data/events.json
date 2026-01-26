@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "83b12df5-6fcb-476e-960b-cfac178ea93d",
+    "userId": "19b5adf0-8d4a-4209-a9db-6b721128612d",
+    "createdBy": "mansoor",
+    "title": "eleanor",
+    "date": "2026-01-12",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "description": "my living place",
+    "type": "poi",
+    "location": "ohh",
+    "duration": null,
+    "category": "apt",
+    "start": "",
+    "end": "",
+    "allDay": false,
+    "resource": null,
+    "sharedWith": [],
+    "createdAt": "2026-01-26T06:25:11.461636392+00:00"
+  }
+]
