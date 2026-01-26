@@ -1,8 +1,0 @@
-/mnt/c/Users/syedm/Documents/TheGoodCompany/social-outing-planner/rust-server/target/debug/deps/cpufeatures-965da2e628aa3ebd.d: /home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/lib.rs /home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/x86.rs
-
-/mnt/c/Users/syedm/Documents/TheGoodCompany/social-outing-planner/rust-server/target/debug/deps/libcpufeatures-965da2e628aa3ebd.rlib: /home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/lib.rs /home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/x86.rs
-
-/mnt/c/Users/syedm/Documents/TheGoodCompany/social-outing-planner/rust-server/target/debug/deps/libcpufeatures-965da2e628aa3ebd.rmeta: /home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/lib.rs /home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/x86.rs
-
-/home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/lib.rs:
-/home/syedm101/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.2.17/src/x86.rs:
