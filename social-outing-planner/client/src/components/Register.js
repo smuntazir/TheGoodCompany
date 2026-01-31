@@ -126,12 +126,12 @@ const Register = ({ onRegister }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (formData.password !== formData.confirmPassword) {
       toast.error('Passwords do not match');
       return;
     }
-    
+
     if (formData.password.length < 6) {
       toast.error('Password must be at least 6 characters');
       return;
@@ -171,7 +171,7 @@ const Register = ({ onRegister }) => {
               required
             />
           </InputGroup>
-          
+
           <InputGroup>
             <InputIcon>
               <Mail size={20} />
@@ -185,7 +185,7 @@ const Register = ({ onRegister }) => {
               required
             />
           </InputGroup>
-          
+
           <InputGroup>
             <InputIcon>
               <Lock size={20} />
@@ -199,7 +199,7 @@ const Register = ({ onRegister }) => {
               required
             />
           </InputGroup>
-          
+
           <InputGroup>
             <InputIcon>
               <Lock size={20} />
@@ -213,13 +213,13 @@ const Register = ({ onRegister }) => {
               required
             />
           </InputGroup>
-          
+
           <Button type="submit" disabled={loading}>
             <UserPlus size={20} />
             {loading ? 'Creating Account...' : 'Create Account'}
           </Button>
         </Form>
-        
+
         <LinkText>
           Already have an account? <Link to="/login">Sign in here</Link>
         </LinkText>

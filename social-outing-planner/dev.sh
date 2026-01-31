@@ -58,6 +58,7 @@ echo "🔵 Frontend: http://localhost:3000"
 cd client
 echo "Starting React..."
 # React scripts will automatically use PORT=3000 by default or via .env
+export HOST=0.0.0.0
 npm start
 
 # Wait for backend to finish (which it shouldn't unless error)

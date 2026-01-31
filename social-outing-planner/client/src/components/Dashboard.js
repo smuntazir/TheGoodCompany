@@ -9,6 +9,7 @@ import AOIForm from './AOIForm';
 import DraggablePill from './DraggablePill';
 import TimePickerModal from './TimePickerModal';
 import AIChat from './AIChat';
+import FriendsSection from './FriendsSection';
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -416,7 +417,13 @@ const Dashboard = ({
   onDeletePOI,
   onDeleteAOI,
   onDeleteEvent,
-  onLogout
+  onLogout,
+  friends,
+  friendRequests,
+  onSendRequest,
+  onAcceptRequest,
+  onRejectRequest,
+  onRemoveFriend
 }) => {
   const [showPOIForm, setShowPOIForm] = useState(false);
   const [showAOIForm, setShowAOIForm] = useState(false);
@@ -636,6 +643,21 @@ const Dashboard = ({
               />
             ))}
           </ListContainer>
+        </Section>
+
+        <Section>
+          <SectionTitle>
+            <Users size={20} />
+            Friends
+          </SectionTitle>
+          <FriendsSection
+            friends={friends}
+            requests={friendRequests}
+            onSendRequest={onSendRequest}
+            onAcceptRequest={onAcceptRequest}
+            onRejectRequest={onRejectRequest}
+            onRemoveFriend={onRemoveFriend}
+          />
         </Section>
 
         <Section>

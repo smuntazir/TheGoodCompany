@@ -26,6 +26,8 @@ class User(BaseModel):
     email: str
     password: str
     createdAt: str = field(default_factory=lambda: datetime.now().isoformat())
+    friends: List[str] = field(default_factory=list)
+    friendRequests: List[str] = field(default_factory=list)
 
 @dataclass
 class POI(BaseModel):

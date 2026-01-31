@@ -21,6 +21,8 @@ const App = () => {
   const [pois, setPois] = useState([]);
   const [aois, setAois] = useState([]);
   const [events, setEvents] = useState([]);
+  const [friends, setFriends] = useState([]);
+  const [friendRequests, setFriendRequests] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -36,20 +38,28 @@ const App = () => {
 
   const fetchUserData = async () => {
     try {
-      const [poisRes, aoisRes, eventsRes] = await Promise.all([
+      const [poisRes, aoisRes, eventsRes, friendsRes, requestsRes] = await Promise.all([
         axios.get('/api/pois'),
         axios.get('/api/aois'),
-        axios.get('/api/events')
+        axios.get('/api/events'),
+        axios.get('/api/friends/list'),
+        axios.get('/api/friends/requests')
       ]);
-      
+
       setPois(poisRes.data);
       setAois(aoisRes.data);
       setEvents(eventsRes.data);
+      setFriends(friendsRes.data);
+      setFriendRequests(requestsRes.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      delete axios.defaults.headers.common['Authorization'];
+      // Don't auto-logout on partial errors, or check if it's 401
+      if (error.response && error.response.status === 401) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        delete axios.defaults.headers.common['Authorization'];
+        setUser(null);
+      }
     } finally {
       setLoading(false);
     }
@@ -72,7 +82,61 @@ const App = () => {
     setPois([]);
     setAois([]);
     setEvents([]);
+    setFriends([]);
+    setFriendRequests([]);
     toast.info('Logged out successfully');
+  };
+
+  const sendFriendRequest = async (username) => {
+    try {
+      await axios.post('/api/friends/request', { username });
+      toast.success('Friend request sent');
+      // No UI update needed for sender as per requirements (silent fail/success)
+    } catch (error) {
+      // Silent fail
+      console.error(error);
+      toast.success('Friend request sent'); // Pretend success for privacy
+    }
+  };
+
+  const acceptFriendRequest = async (username) => {
+    try {
+      await axios.post('/api/friends/accept', { username });
+      toast.success(`You are now friends with ${username}`);
+      // Refresh list
+      const [friendsRes, requestsRes] = await Promise.all([
+        axios.get('/api/friends/list'),
+        axios.get('/api/friends/requests')
+      ]);
+      setFriends(friendsRes.data);
+      setFriendRequests(requestsRes.data);
+    } catch (error) {
+      toast.error('Error accepting friend');
+    }
+  };
+
+  const rejectFriendRequest = async (username) => {
+    try {
+      await axios.post('/api/friends/reject', { username });
+      toast.info('Request removed');
+      // Refresh requests
+      const res = await axios.get('/api/friends/requests');
+      setFriendRequests(res.data);
+    } catch (error) {
+      toast.error('Error removing request');
+    }
+  };
+
+  const removeFriend = async (username) => {
+    try {
+      await axios.post('/api/friends/remove', { username });
+      toast.info('Friend removed');
+      // Refresh list
+      const friendsRes = await axios.get('/api/friends/list');
+      setFriends(friendsRes.data);
+    } catch (error) {
+      toast.error('Error removing friend');
+    }
   };
 
   const addPOI = async (poiData) => {
@@ -155,27 +219,29 @@ const App = () => {
     <AppContainer>
       <Router>
         <Routes>
-          <Route 
-            path="/login" 
+          <Route
+            path="/login"
             element={
               user ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />
-            } 
+            }
           />
-          <Route 
-            path="/register" 
+          <Route
+            path="/register"
             element={
               user ? <Navigate to="/dashboard" /> : <Register onRegister={handleLogin} />
-            } 
+            }
           />
-          <Route 
-            path="/dashboard" 
+          <Route
+            path="/dashboard"
             element={
               user ? (
-                <Dashboard 
+                <Dashboard
                   user={user}
                   pois={pois}
                   aois={aois}
                   events={events}
+                  friends={friends}
+                  friendRequests={friendRequests}
                   onAddPOI={addPOI}
                   onAddAOI={addAOI}
                   onAddEvent={addEvent}
@@ -183,9 +249,13 @@ const App = () => {
                   onDeleteAOI={deleteAOI}
                   onDeleteEvent={deleteEvent}
                   onLogout={handleLogout}
+                  onSendRequest={sendFriendRequest}
+                  onAcceptRequest={acceptFriendRequest}
+                  onRejectRequest={rejectFriendRequest}
+                  onRemoveFriend={removeFriend}
                 />
               ) : <Navigate to="/login" />
-            } 
+            }
           />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>

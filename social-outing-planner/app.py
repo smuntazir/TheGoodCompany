@@ -20,6 +20,9 @@ app.register_blueprint(content_bp, url_prefix='/api')
 app.register_blueprint(planning_bp, url_prefix='/api')
 app.register_blueprint(ai_bp, url_prefix='/api')
 
+from server.routes.friends import friends_bp
+app.register_blueprint(friends_bp, url_prefix='/api')
+
 # Routes for Serve React App
 @app.errorhandler(404)
 def not_found(e):

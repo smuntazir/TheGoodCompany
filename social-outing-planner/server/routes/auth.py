@@ -22,7 +22,7 @@ def register():
         users = JsonStorage.read(Config.USERS_FILE)
         
         # Check if user already exists
-        existing_user = next((u for u in users if u['email'] == email or u['username'] == username), None)
+        existing_user = next((u for u in users if u['email'].lower() == email.lower() or u['username'].lower() == username.lower()), None)
         if existing_user:
             return jsonify({'error': 'User already exists'}), 400
         
@@ -67,7 +67,7 @@ def login():
             return jsonify({'error': 'Missing email or password'}), 400
         
         users = JsonStorage.read(Config.USERS_FILE)
-        user = next((u for u in users if u['email'] == email), None)
+        user = next((u for u in users if u['email'].lower() == email.lower()), None)
         
         # user here is a dict because Read returns dicts
         if not user or not verify_password(password, user['password']):
