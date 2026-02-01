@@ -206,7 +206,7 @@ const TimePickerModal = ({ event, onSave, onClose }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('/api/users');
+        const response = await axios.get('/api/friends/list');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -299,11 +299,11 @@ const TimePickerModal = ({ event, onSave, onClose }) => {
             <UserSelectionContainer>
               {loadingUsers ? (
                 <div style={{ textAlign: 'center', color: '#666666', fontSize: '14px' }}>
-                  Loading users...
+                  Loading friends...
                 </div>
               ) : users.length === 0 ? (
                 <div style={{ textAlign: 'center', color: '#666666', fontSize: '14px' }}>
-                  No other users available
+                  No friends found. Add friends to share events!
                 </div>
               ) : (
                 users.map(user => (

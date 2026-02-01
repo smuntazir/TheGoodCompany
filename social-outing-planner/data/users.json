@@ -61,5 +61,36 @@
     "email": "help@google.com",
     "password": "$2b$12$WQ9Lr4H6D1mVeJlPGh5pb.AE4nIpdgFacl1BT8rU9tcN7gy5PL6XC",
     "createdAt": "2026-01-24T11:00:21.119637"
+  },
+  {
+    "id": "a837c5a1-d928-4d79-a2bb-249a0a90e679",
+    "username": "FriendA",
+    "email": "friendA@test.com",
+    "password": "$2b$12$jCn1hL3lzqvsk90OQhTMJOB6WRttMhtWKWpOloz/g.iXTMHGpWdkW",
+    "createdAt": "2026-02-01T08:35:19.884866",
+    "friends": [
+      "59fbe2b9-4680-4924-9417-13020b63ed91"
+    ],
+    "friendRequests": []
+  },
+  {
+    "id": "59fbe2b9-4680-4924-9417-13020b63ed91",
+    "username": "FriendB",
+    "email": "friendB@test.com",
+    "password": "$2b$12$mYQ5F/F0lHlKumTRod1b4.8ixK/iBfWIVonUBDJuSN3Ya.aH1E0oe",
+    "createdAt": "2026-02-01T08:35:46.073942",
+    "friends": [
+      "a837c5a1-d928-4d79-a2bb-249a0a90e679"
+    ],
+    "friendRequests": []
+  },
+  {
+    "id": "8b80b4bd-0322-4d60-b7f6-18b7a04f31a7",
+    "username": "Stranger",
+    "email": "stranger@test.com",
+    "password": "$2b$12$NQCI7CiSzEESoOlAUHTN.uKTkqklQQRlF8rihdkF7hNZli0r0MK4i",
+    "createdAt": "2026-02-01T08:36:09.123041",
+    "friends": [],
+    "friendRequests": []
   }
 ]

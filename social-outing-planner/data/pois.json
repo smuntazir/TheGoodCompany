@@ -106,5 +106,14 @@
     "description": "Manicured grounds featuring quiet ponds and rare floral species.",
     "category": "nature",
     "createdAt": "2026-01-24T12:35:19.644824"
+  },
+  {
+    "_id": "1198089c-fb66-4c82-b785-04814b75b26a",
+    "userId": "a837c5a1-d928-4d79-a2bb-249a0a90e679",
+    "name": "Test Park",
+    "location": "",
+    "description": "",
+    "category": "",
+    "createdAt": "2026-02-01T08:38:40.257320"
   }
 ]

@@ -183,7 +183,11 @@ def get_friends(current_user):
         for uid in friend_ids:
             u = next((user for user in users if user['id'] == uid), None)
             if u:
-                friends_list.append({'username': u['username']})
+                friends_list.append({
+                    'id': u['id'],
+                    'username': u['username'],
+                    'email': u['email']
+                })
         
         return jsonify(friends_list), 200
         
