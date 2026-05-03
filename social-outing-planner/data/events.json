@@ -274,5 +274,47 @@
     "resource": null,
     "sharedWith": [],
     "createdAt": "2026-01-24T12:30:58.054485"
+  },
+  {
+    "_id": "4b9a6be6-4045-4111-97b5-65b65927b132",
+    "userId": "22b69e17-2717-45cd-8537-ffe8318051db",
+    "createdBy": "mansoor",
+    "title": "Venue",
+    "date": "2026-05-12",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "description": "",
+    "type": "poi",
+    "location": "venue",
+    "duration": null,
+    "category": "",
+    "start": "",
+    "end": "",
+    "allDay": false,
+    "resource": null,
+    "sharedWith": [
+      "7e112bc2-150e-4c19-9be2-10676c8f610d"
+    ],
+    "createdAt": "2026-05-03T10:36:13.820081"
+  },
+  {
+    "_id": "98e1b72e-d863-45c9-b3ee-6cd8af67c0f8",
+    "userId": "7e112bc2-150e-4c19-9be2-10676c8f610d",
+    "createdBy": "salman",
+    "title": "asdf",
+    "date": "2026-05-15",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "description": "",
+    "type": "poi",
+    "location": "",
+    "duration": null,
+    "category": "",
+    "start": "",
+    "end": "",
+    "allDay": false,
+    "resource": null,
+    "sharedWith": [],
+    "createdAt": "2026-05-03T11:30:08.035743"
   }
 ]
