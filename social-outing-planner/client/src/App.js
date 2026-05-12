@@ -189,19 +189,31 @@ const App = () => {
     }
   };
 
+  const deletingIds = React.useRef(new Set());
+
   const deleteEvent = async (id) => {
+    if (deletingIds.current.has(id)) return;
+    deletingIds.current.add(id);
+    
+    console.log('deleteEvent called for ID:', id);
     try {
       await axios.delete(`/api/events/${id}`);
       setEvents(events.filter(event => event._id !== id));
       toast.success('Event removed');
     } catch (error) {
+      console.error('Error deleting event:', id, error.response?.status, error.response?.data);
       if (error.response?.status === 403) {
         toast.error('Only the event creator can delete this event');
-      } else {
+      } else if (error.response?.status !== 404) {
+        // Only show error if it's not a 404 (which we might get from race conditions)
         toast.error(error.response?.data?.error || 'Error removing event');
       }
+    } finally {
+      deletingIds.current.delete(id);
     }
   };
+
+
 
   // Drag and drop is now handled in Dashboard component
 

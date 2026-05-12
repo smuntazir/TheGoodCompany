@@ -8,6 +8,7 @@ import POIForm from './POIForm';
 import AOIForm from './AOIForm';
 import DraggablePill from './DraggablePill';
 import TimePickerModal from './TimePickerModal';
+import EventDetailModal from './EventDetailModal';
 import AIChat from './AIChat';
 import FriendsSection from './FriendsSection';
 
@@ -432,6 +433,8 @@ const Dashboard = ({
   const [pendingEvent, setPendingEvent] = useState(null);
   const [dragOverDay, setDragOverDay] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [editingEvent, setEditingEvent] = useState(null);
 
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(currentDate);
@@ -461,9 +464,27 @@ const Dashboard = ({
 
 
   const handleTimePickerSave = async (eventWithTime) => {
+    if (editingEvent) {
+      await onDeleteEvent(editingEvent._id);
+      setEditingEvent(null);
+    }
     await onAddEvent(eventWithTime);
     setShowTimePicker(false);
     setPendingEvent(null);
+  };
+
+  const handleDeleteEvent = (event) => {
+    setSelectedEvent(null);
+    onDeleteEvent(event._id);
+  };
+
+
+
+  const handleEditEvent = (event) => {
+    setSelectedEvent(null);
+    setEditingEvent(event);
+    setPendingEvent(event);
+    setShowTimePicker(true);
   };
 
   const handleDrop = (e, day) => {
@@ -560,8 +581,8 @@ const Dashboard = ({
                 key={event._id}
                 type={event.type}
                 $isShared={isShared}
-                onClick={() => onDeleteEvent(event._id)}
-                title={isShared ? `Shared event by ${event.createdBy || 'Unknown'}. Click to remove` : 'Click to remove'}
+                onClick={() => setSelectedEvent(event)}
+                title="Click for details"
               >
                 <EventHeader>
                   <div>{event.title}</div>
@@ -727,7 +748,17 @@ const Dashboard = ({
           onClose={() => {
             setShowTimePicker(false);
             setPendingEvent(null);
+            setEditingEvent(null);
           }}
+        />
+      )}
+
+      {selectedEvent && (
+        <EventDetailModal
+          event={selectedEvent}
+          onEdit={handleEditEvent}
+          onDelete={handleDeleteEvent}
+          onClose={() => setSelectedEvent(null)}
         />
       )}
     </DashboardContainer>
